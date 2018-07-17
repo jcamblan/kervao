@@ -1,0 +1,82 @@
+section#prices.prices.container-fluid.text-center.py-5
+  h2.mx-auto.my-0.align-self-center 
+    = t("prices.h2")
+  p.mx-auto.my-0.align-self-center 
+    = t("prices.subtitle")
+  .row
+    .col.col-md-8.m-auto.py-5
+      table.text-center.table
+        thead
+          tr
+            th.d-none.d-sm-table-cell.bg-transparent style="border-top:0;"
+            th.bg-camellias
+              span = t("prices.camellias")
+            th.bg-hortensias
+              span = t("prices.hortensias")
+            th.bg-arums
+              span = t("prices.arums")
+        tbody
+          tr.d-table-row.d-sm-none
+            th colspan="3" 
+              = t("prices.peak_season.name")
+              small = t("prices.peak_season.month")
+          tr
+            th.d-none.d-sm-table-cell.db-width-perticular
+              = t("prices.peak_season.name")
+              br
+              small = t("prices.peak_season.month")
+            td.align-middle 595 €
+            td.align-middle 410 €
+            td.align-middle 595 €
+          tr.d-table-row.d-sm-none
+            th colspan="3" 
+              = t("prices.mid_season.name")
+              small = t("prices.mid_season.month")
+          tr
+            th.d-none.d-sm-table-cell.db-width-perticular
+              = t("prices.mid_season.name")
+              br
+              small = t("prices.mid_season.month")
+            td.align-middle 400 €
+            td.align-middle 310 €
+            td.align-middle 400 €
+          tr.d-table-row.d-sm-none
+            th colspan="3" 
+              = t("prices.off_peak_season.name")
+              small = t("prices.off_peak_season.month")
+          tr
+            th.d-none.d-sm-table-cell.db-width-perticular
+              = t("prices.off_peak_season.name")
+              br
+              small 
+                = t("prices.off_peak_season.month")
+            td.align-middle 300 €
+            td.align-middle 290 €
+            td.align-middle 300 €
+          tr.d-table-row.d-sm-none
+            th colspan="3" 
+              = t("prices.we.name")
+              small 
+                = t("prices.we.2d")
+          tr
+            th.d-none.d-sm-table-cell.db-width-perticular
+              = t("prices.we.name")
+              small 
+                = t("prices.we.2d")
+            td.align-middle 220 €
+            td.align-middle 150 €
+            td.align-middle 220 €
+          tr.d-table-row.d-sm-none
+            th colspan="3" 
+              = t("prices.we.name")
+              small 
+                = t("prices.we.3d")
+          tr
+            th.d-none.d-sm-table-cell.db-width-perticular
+              = t("prices.we.name")
+              small 
+                = t("prices.we.3d")
+            td.align-middle 275 €
+            td.align-middle 200 €
+            td.align-middle 270 €
+  = partial "backtotop"

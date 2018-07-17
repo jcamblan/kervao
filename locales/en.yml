@@ -1,0 +1,113 @@
+en:
+  paths:
+    arums: "arums"
+    camellias: "camelias"
+    hortensias: "hydrangeas"
+  site_title: &title "The cottages of Kervao"
+  back_to_top: "Back to top"
+  navbar:
+    title: *title
+    gites: &gites "Our cottages"
+    find_us: &find_us "Find us"
+    prices: &prices "Our prices"
+    contact: &contact "Contact us"
+  intro:
+    text: "<p>In 1977, when we were living in Brest, we bought an old 19th century farm house as our second home. Over the years we have renovated, transformed, and enlarged the house and created the garden that surrounds it.</p><p>In the last few years Kervao has become our main residence and we have started to welcome passing guests to our rooms.</p><p>We can now also welcome you into one of our three gîtes, newly built close to the house.</p> #### REQUIRE UPDATE ####"
+    author: "Gisèle & Jean-Pierre Madec"
+  gites:
+    h2: *gites
+    intro: "The three gîtes are in a single long building constructed between the autumn of 2004 and the summer of 2005. We sought to bring together the best of modern building - light, insulation, etc. - with the proportions of typical local buildings.<br>Although they are terraced, the gîtes are well separated and each has its own patio and small garden of about 50sqm. The car park and the larger garden of 1600 sqm are common to all three gîtes."
+    surface: "Surface"
+    bedrooms: "Bedrooms"
+    beds: "Beds"
+    shower_room: "Shower room"
+    parking: "Parking"
+    ground_floor: "Ground floor:"
+    upstairs: "Upstairs:"
+    outside: "Outside:"
+    wheelchair: "Accessibility:"
+    camellias:
+      name: "Camelias"
+      surface: "82m²"
+      bedrooms: "2"
+      beds: "3 to 4"
+      shower_room: "1"
+      parking: "2"
+      wheelchair: ""
+      headline: ""
+      block1: ""
+      block2: ""
+      block3: ""
+      block4: ""
+    hortensias:
+      name: "Hydrangeas"
+      surface: "42m²"
+      bedrooms: "1"
+      beds: "2"
+      shower_room: "1"
+      parking: "2"
+      wheelchair: ""
+      headline: ""
+      block1: ""
+      block2: ""
+      block3: ""
+      block4: ""
+    arums:
+      name: "Arums"
+      surface: "82m²"
+      bedrooms: "2"
+      beds: "3 to 4"
+      shower_room: "1"
+      parking: "2"
+      wheelchair: ""
+      headline: ""
+      block1: ""
+      block2: ""
+      block3: ""
+      block4: ""
+    button: "See more"
+  findus:
+    h2: *find_us
+    kervao:
+      h3: "Where is Kervao?"
+      text: "Kervao is a hamlet in the district of Ploudalmézeau, 600 metres from the dunes of Tréompan.<br>As you leave Ploudamézeau, follow the signs to the \"Plages de Tréompan\". You will find us 2 km from the edge of the town of Ploudalmézeau, at number 23, on the left of the road."
+    ploudal: 
+      h3: "Where is Ploudalmézeau?"
+      text: "Ploudalmézeau (5000 inhabitants) is a district in the 'Pays d'Iroise', in the Department of Finistère, at the tip of Brittany."
+    come:
+      from_paris: "From Paris"
+      h3: "How to get here?"
+      car: "By car (600 km): take the A11 motorway to Rennes, la N12 dual carriageway until you are close to Brest. Take the Gouesnou - Lannilis exit then follow the D788 local road to Ploudalmézeau."
+      plane: "By air: fly to Brest (Brest-Guipavas airport)"
+      plane_link: " Brest Bretagne airport website"
+      train: "By train: Paris-Brest"
+      train_link: " SNCF website"
+  prices:
+    h2: *prices
+    subtitle: "(per week or per week-end)"
+    camellias: "Camelias"
+    hortensias: "Hydrangeas"
+    arums: "Arums"
+    peak_season: 
+      name: "Peak season"
+      month: "(july - august)"
+    mid_season: 
+      name: "Mid season"
+      month: "(may, june, september)"
+    off_peak_season: 
+      name: "Off-peak season"
+      month: "(october to april)"
+    we: 
+      name: "week-end"
+      2d: " (2 days)"
+      3d: " (3 days)"
+  contact:
+    h2: *contact
+    form:
+      reason: "Reason of your message:"
+      information: "Information "
+      booking: "Booking"
+      ph_your_name: "Your name"
+      ph_your_email: "Your email"
+      ph_your_msg: "Your message"
+      submit: "Submit"

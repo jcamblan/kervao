@@ -1,0 +1,14 @@
+#carouselExampleControls.carousel.slide data-ride="carousel" 
+  .carousel-inner
+    .carousel-item.active
+      = image_tag "header.jpg", class: "d-block w-100", alt: "First slide"
+    .carousel-item
+      = image_tag "header.jpg", class: "d-block w-100", alt: "First slide"
+    .carousel-item
+      = image_tag "header.jpg", class: "d-block w-100", alt: "First slide"
+  a.carousel-control-prev data-slide="prev" href="#carouselExampleControls" role="button" 
+    span.carousel-control-prev-icon aria-hidden="true" 
+    span.sr-only Previous
+  a.carousel-control-next data-slide="next" href="#carouselExampleControls" role="button" 
+    span.carousel-control-next-icon aria-hidden="true" 
+    span.sr-only Next

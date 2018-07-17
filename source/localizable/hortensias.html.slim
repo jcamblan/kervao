@@ -1,0 +1,16 @@
+---
+title: Les gîtes de Kervao
+---
+/! HEADER
+header
+  /! NAVBAR
+  = partial "navbar", :locals => { :page => "gite", :bg => "hortensias" }
+  /! FIN NAVBAR
+/! FIN HEADER
+
+= partial "gite", :locals => { :gite => "hortensias" }
+
+/! FOOTER
+= partial "footer", :locals => { :bg => "hortensias" }
+/! FIN - FOOTER
+

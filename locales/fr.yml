@@ -1,0 +1,122 @@
+fr:
+  paths:
+    arums: "arums"
+    camellias: "camellias"
+    hortensias: "hortensias"
+  site_title: &title "Les gîtes de Kervao"
+  back_to_top: "Remonter"
+  navbar:
+    title: *title
+    gites: &gites "Nos gîtes"
+    find_us: &find_us "Nous trouver"
+    prices: &prices "Nos tarifs"
+    contact: &contact "Nous contacter"
+  intro:
+    text: "<p>Originaires de Brest nous avons acheté en 1977 une ancienne ferme datée du début du XIXème siècle pour en faire notre résidence secondaire. Au fil des années, nous avons rénové, transformé, agrandi la maison, et créé le jardin qui l'entoure. Au début des années 2000, Kervao est devenu notre résidence principale et nous avons commencé à accueillir des hôtes de passage dans les chambres de le maison.</p><p>En 2005, nous avons fait bâtir une longère qui accueille trois gîtes indépendants. En 2016 nous avons décidé de concentrer notre accueil sur ces trois gîtes.</p><p>Au plaisir de vous recevoir dans les Caméllias, les Arums ou les Hortensias.</p>"
+    author: "Gisèle et Jean-Pierre Madec"
+  gites:
+    h2: *gites
+    intro: "Les trois gîtes sont rassemblés dans une longère construite entre l'automne 2004 et l'été 2005. Nous avons cherché à concilier les atouts des constructions actuelles (luminosité, isolation,...) et les proportions de l'habitat traditionnel local.<br>Mitoyens, les gîtes sont néanmoins bien isolés les uns des autres, y compris au niveau des terrasses et jardinets (50&nbsp;m²). Le parking et le jardin clos de 1600 m² sont communs aux trois gîtes."
+    surface: "Surface"
+    bedrooms: "Chambres"
+    beds: "Couchages"
+    shower_room: "Salle d'eau"
+    parking: "Places de parking"
+    ground_floor: &gf "Rez-de-chaussée :"
+    upstairs: &ups "Etage :"
+    outside: &os "Terrain :"
+    wheelchair: "Accès handicapés"
+    camellias:
+      name: "Les caméllias"
+      surface: "82m²"
+      bedrooms: "2"
+      beds: "4 à 5"
+      shower_room: "1"
+      parking: "2"
+      wheelchair: "Oui"
+      headline: "<strong>Gîte pour 4 à 5 personnes</strong> à 600 mètres de la mer, dans un ensemble de 3 gîtes."
+      block1: "<p>Surface au sol : 82m²</p><p>Eau chaude et chauffage électrique (panneaux radiants).</p><p>Linge : Les lits seront faits, garnis de draps et de taies. Les serviettes et gants de toilette seront fournis à l'arrivée sauf le linge de cuisine.</p>"
+      subtitle2: *gf
+      block2: "<p class=\"text-center\">(aux normes pour l'accès de personnes handicapées)</p><p><strong>Entrée</strong> (4 m²)</p><p><strong>Pièce à vivre</strong>  (25 m²) avec cuisine aménagée (plaques électriques, hotte aspirante, four, four micro-onde, lave-vaisselle, réfrigérateur/congélateur), une table, 6 chaises, un buffet à vaisselle, un canapé, 2 fauteuils, un téléviseur.</p><p>Volets roulants électriques<p></p><strong>Chambre</strong> (14 m²) avec lit  2 personnes (160x200), une commode</p><p><strong>Salle d'eau</strong> (7,2 m²) avec douche, lavabo, wc, machine à laver, sèche-linge</p>"
+      subtitle3: *ups
+      block3: "<p><strong>Chambre</strong> (14 m²) avec 2 lits de 1 personne (90 x 190),un lit bébé et une armoire penderie.</p><p><strong>Mezzanine</strong> (15 m² au sol) avec 1 lit de100&nbsp;</p><p><strong>Rangement</strong> (4 m²)</p>"
+      subtitle4: *os
+      block4: "<p>Le gîte dispose d'une <strong>terrasse et d'un jardinet privatifs</strong> (50 m²), équipés d'un salon de jardin et d'un barbecue électrique.</p><p>Le <strong>jardin clos </strong>de 1600 m² est partagé avec les deux autres gîtes.</p><p><strong>2 places de parking</strong>&nbsp;sont réservées au gîte, dans l'enceinte de la propriété.</p>"
+    hortensias:
+      name: "Les hortensias"
+      surface: "42m²"
+      bedrooms: "1"
+      beds: "2"
+      shower_room: "1"
+      parking: "2"
+      wheelchair: "Non"
+      headline: "<strong>Gîte pour 2 personnes</strong> à 600 mètres de la mer, dans un ensemble de 3 gîtes, en étage (au-dessus d'un local de rangement), accessible par un escalier extérieur privatif."
+      block1: "<p>Surface au sol : 42m²</p><p>Eau chaude et chauffage électrique (panneaux radiants).</p><p>Linge : Les lits seront faits, garnis de draps et de taies. Les serviettes et gants de toilette seront fournis à l'arrivée sauf le linge de cuisine.</p>"
+      subtitle2: *ups
+      block2: "<p><strong>Pièce à vivre </strong> (23 m²) avec cuisine intégrée (4 plaques électriques, une hotte aspirante, un four, un four micro-onde, un lave-vaisselle,un réfrigérateur/congélateur ) une table, 4 chaises, un buffet à vaisselle,un canapé, un téléviseur.<p><p><strong>Chambre</strong> (12 m²) avec lit 2 personnes (140), une armoire.</p><p><strong>Salle d'eau</strong> (7 m²) avec douche et lavabo, wc</p><p><strong>Sas</strong> : machine à laver, sèche-linge</p>"
+      subtitle3: *os
+      block3: "<p>Le gîte dispose d'une <strong>terrasse et d'un jardinet privatifs</strong> (50 m²), équipés d'un salon de jardin et d'un barbecue électrique.</p><p>Le <strong>jardin clos</strong> de 1600 m² est partagé avec les deux autres gîtes.</p><p>Une <strong>place de parking</strong> est réservée au gîte, dans l'enceinte de la propriété.</p>"
+      subtitle4: ""
+      block4: ""
+    arums:
+      name: "Les arums"
+      surface: "82m²"
+      bedrooms: "2"
+      beds: "4 à 5"
+      shower_room: "1"
+      parking: "2"
+      wheelchair: "Non"
+      headline: "<strong>Gîte pour 4 à 5 personnes</strong> à 600 mètres de la mer, dans un ensemble de 3 gîtes."
+      block1: "<p>Surface au sol : 82m².</p><p>Eau chaude et chauffage électrique (panneaux radiants).</p><p>Linge : Les lits seront faits, garnis de draps et de taies. Les serviettes et gants de toilette<p> seront fournis à l'arrivée sauf le linge de cuisine.</p>"
+      subtitle2: *gf
+      block2: "<p><strong>Pièce à vivre</strong> (30 m²) avec cheminée, cuisine intégrée( 4 plaques électriques, 1 four, un four micro-onde, 1lave-vaisselle, un réfrigérateur/congélateur ), une table, 6 chaises, un buffet à vaisselle,un canapé convertible, 2 fauteuils, un téléviseur.</p><p>Volets roulants électriques.</p><p><strong>Cheminée:</strong> La première flambée est offerte. Par la suite, le bois est mis à disposition sur demande (... €/...)</p><p><strong>Chambre</strong> (12 m²) avec lit 2 personnes (140x200), une armoire.</p><p><strong>Salle d'eau</strong> avec douche, lavabo, machine à laver et sèche-linge</p><p><strong>WC :</strong> indépendant</p>"
+      subtitle3: *ups
+      block3: "<p><strong>Chambre</strong> (12 m²) avec 2 lits de 1 personne (90 x 190 ).</p><p>Volets manuels.</p><p><strong>Mezzanine</strong>  (15 m²  au sol) avec 1 lit.</p><p>Rangement (4 m²)</p>"
+      subtitle4: *os
+      block4: "<p>Le gîte dispose d'une <strong>terrasse et d'un jardinet privatifs</strong> (50 m²), équipés d'un salon de jardin et d'un barbecue électrique.</p><p>Le <strong>jardin clos</strong> de 1600 m² est partagé avec les deux autres gîtes.</p><p><strong>2 places de parking</strong> sont réservées au gîte, dans l'enceinte de la propriété.</p>"
+    button: "En savoir plus"
+  findus:
+    h2: *find_us
+    kervao:
+      h3: "Où est Kervao ?"
+      text: "Kervao est un hameau de la commune de Ploudalmézeau, à 600 mètres des dunes de Tréompan.<br>A partir du bourg de Ploudamézeau, suivre la D26 vers \"plages de tréompan\" sur 2km200. 100 mètres après la pancarte \"Tréompan\" au croisement avec la rue \"La Flosque\" vous nous trouverez au numéro 23, sur la gauche de la route."
+    ploudal: 
+      h3: "Où est Ploudalmézeau ?"
+      text: "Ploudalmézeau (5000 habitants) est une commune du Pays d'Iroise, dans le département du Finistère, à la pointe de la Bretagne."
+    come:
+      from_paris: "Depuis Paris"
+      h3: "Comment venir ?"
+      car: "En voiture (600 km) par l'autoroute A11 jusqu'&agrave; Rennes, la voie rapide N12 jusqu'&agrave; l'entr&eacute;e de Brest, puis la route d&eacute;partementale D788 jusqu'&agrave; Ploudalm&eacute;zeau (sortie Gouesnou- Lannilis)"
+      plane: "En avion : jusqu'&agrave; Brest (a&eacute;roport de Brest-guipavas)"
+      plane_link: " Site de l'Aéroport Brest Bretagne"
+      train: "En train : ligne Paris-Brest"
+      train_link: " Site de la SNCF"
+  prices:
+    h2: "Nos tarifs"
+    subtitle: "(à la semaine ou au week-end)"
+    camellias: "Caméllias"
+    hortensias: "Hortensias"
+    arums: "Arums"
+    peak_season: 
+      name: "Haute saison"
+      month: "(juillet - août)"
+    mid_season: 
+      name: "Moyenne saison"
+      month: "(mai, juin, septembre)"
+    off_peak_season: 
+      name: "Basse saison"
+      month: "(octobre à avril)"
+    we: 
+      name: "week-end"
+      2d: " (2 jours)"
+      3d: " (3 jours)"
+  contact:
+    h2: "Nous contacter"
+    form:
+      reason: "Motif de votre message :"
+      information: "Renseignement "
+      booking: "Réservation"
+      ph_your_name: "Votre nom"
+      ph_your_email: "Votre email"
+      ph_your_msg: "Votre message"
+      submit: "Envoyer"

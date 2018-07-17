@@ -1,0 +1,221 @@
+@charset "utf-8";
+@import "normalize";
+
+// VARIABLES 
+
+$camellias: #a42c2d !default;
+$arums: #7b9b38!default;
+$hortensias: #3d4961 !default;
+$beige: #f9f9eb!default;
+
+$h2sombre: #404040 !default;
+$h2sombreShadow: lightgrey !default;
+$h2clair: white !default;
+$h2clairShadow: grey !default;
+
+
+// GLOBAL
+
+body {
+  background-color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+body h1 {
+  text-transform: uppercase;
+  font-size: 3rem;
+  color: lightgrey;
+  padding:0;
+  font-weight: 700;
+  text-shadow: 2px 2px $h2clairShadow;
+}
+
+body h2 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  color: $h2sombre;
+  padding:0;
+  text-shadow: 2px 2px $h2sombreShadow;
+}
+
+.back-to-top a {
+  color:$h2sombre;
+}
+
+.back-to-top a:hover {
+  text-decoration:none;
+  color: lighten( $h2sombre, 10% )
+}
+
+.parallax-window {
+    min-height: 500px;
+    background: transparent;
+}
+
+// COLORS
+
+.bg-camellias {
+  background-color: $camellias;
+}
+.text-camellias, .icons-camellias i, .title-camellias h2 {
+  color: $camellias;
+}
+.icons-camellias {
+  background-color: $beige;
+}
+.btn-camellias {
+  background-color: darken( $camellias, 10% );
+  color: white;
+}
+.btn-camellias:hover {
+  background-color: darken( $camellias, 5% );
+}
+
+.bg-arums {
+  background-color: $arums;
+}
+.text-arums, .icons-arums i, .title-arums h2 {
+ color: $arums;
+}
+.icons-arums {
+  background-color: $beige;
+}
+.btn-arums {
+  background-color: darken( $arums, 10% );
+  color: white;
+}
+.btn-arums:hover {
+  background-color: darken( $arums, 5% );
+}
+
+.bg-hortensias {
+  background-color: $hortensias;
+}
+.text-hortensias, .icons-hortensias i, .title-hortensias h2 {
+ color: $hortensias;
+}
+.icons-hortensias {
+  background-color: $beige;
+}
+.btn-hortensias {
+  background-color: darken( $hortensias, 10% );
+  color: white;
+}
+.btn-hortensias:hover {
+  background-color: darken( $hortensias, 5% );
+}
+
+// NAVBAR
+
+// CAROUSEL
+
+// TEXT INTRO
+.intro-img {
+  background-image: image-url("header_.jpg");
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 56px);
+}
+
+.text-intro {
+    font-size: 11px;
+}
+
+.text-intro blockquote {
+    background: none;
+    color: gray;
+    font-size: 1.5em;
+    font-style: italic;
+    margin: 0;
+    text-shadow: 0 1px white;
+}
+
+.text-intro blockquote p {
+    color: $arums; 
+}
+
+.text-intro blockquote p:first-child:before {
+    content: '\201C';
+    color: $arums;
+    font-size: 7.5em;
+    font-weight: 700;
+    opacity: .3;
+    position: absolute;
+    top: -.4em;
+    left: -.2em;    
+    text-shadow: none;
+    z-index: -300;
+}
+
+.text-intro cite {
+    color: #5e5e5e;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+// GITES
+
+.gites {
+  background-color: $beige;
+}
+
+// FIND US 
+
+.findus {
+  background-image: image-url("map.jpg")
+}
+
+.findus h3, .gites h3, .gite h3 {
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align:center;
+}
+
+.findus p {
+  color: gray;
+}
+
+#map {
+    height: 350px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+  #map {
+      height: 100%;
+      width: 100%;
+  }
+}
+
+// PRICES
+
+.prices {
+  background-color: $beige;
+}
+
+.prices td, th {
+  background-color: white;
+}
+
+.prices thead tr th {
+    font-weight: normal;
+    font-weight: normal;
+    height: 72px;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+}
+
+.prices th {
+  min-width:80px;
+}
+
+// FOOTER
+
+footer h2 {
+  color: $h2clair;
+  text-shadow: 2px 2px $h2clairShadow;
+}

@@ -1,0 +1,40 @@
+section#findus.findus.container-fluid.text-center.py-5
+  h2.mx-auto.mb-5.p-0 
+    = t("findus.h2")
+  .row.justify-content-center
+    .col-xs-12.col-md-5.text-justify
+      h3 
+        = t("findus.kervao.h3")
+      p
+        = t("findus.kervao.text")
+      h3 
+        = t("findus.ploudal.h3")
+      p 
+        = t("findus.ploudal.text")
+      h3 
+        = t("findus.come.h3")
+      p.text-center 
+       = t("findus.come.from_paris")
+      .d-flex.row
+        i.fas.fa-car.fa-3x.col-2.text-secondary.mb-4
+        p.col-10.mb-4
+          = t("findus.come.car")
+        i.fas.fa-plane.fa-3x.col-2.text-secondary.mb-4
+        p.col-10.mb-4
+          = t("findus.come.plane")
+          br
+          a href="https://www.brest.aeroport.bzh"
+            i.fas.fa-external-link-alt
+            = t("findus.come.plane_link")
+        i.fas.fa-train.fa-3x.col-2.text-secondary
+        p.col-10
+          = t("findus.come.train")
+          br
+          a href="http://www.sncf.fr/"
+            i.fas.fa-external-link-alt
+            = t("findus.come.train_link")
+    /! MAP
+    .col.col-xs-12.col-md-5.mt-xs-3.mt-md-0
+      #map.shadow
+    /! FIN MAP
+  = partial "backtotop"

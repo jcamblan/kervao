@@ -1,0 +1,108 @@
+section#gites.gites.container-fluid.text-center.py-5
+  h2.mx-auto.mb-5 
+    = t("gites.h2")
+  blockquote.col-md-8.mx-auto.my-0.text-justify.pb-5
+    p 
+      = t("gites.intro")
+  .card-deck.text-justify
+    .card.shadow.col-xs-12.col-lg-5.col-xl-4.px-0
+      = image_tag "camellias.jpg", class: "card-img-top", alt: t("gites.camellias.name")
+      .card-body
+        h3
+          = t("gites.camellias.name")
+        hr
+        .row.text-center.justify-content-around
+          .gite-info.pb-3
+            i.fas.fa-home.fa-3x.text-camellias
+            br
+            small.text-camellias
+              = t("gites.surface")
+            br
+            = t("gites.camellias.surface")
+          .gite-info.pb-3
+            i.fas.fa-bed.fa-3x.text-camellias
+            br
+            small.text-camellias
+              = t("gites.bedrooms")
+            br
+            = t("gites.camellias.bedrooms")
+          .gite-info.pb-3
+            i.fas.fa-users.fa-3x.text-camellias
+            br
+            small.text-camellias
+              = t("gites.beds")
+            br
+            = t("gites.camellias.beds")
+          .gite-info.pb-3
+            i.fab.fa-accessible-icon.fa-3x.text-camellias
+            br
+            = content_tag :small, class: "text-camellias"
+              = t("gites.wheelchair")
+            br
+            = t("gites.camellias.wheelchair")
+        hr
+        p.text-center
+          = link_to t("gites.button"), t("paths.camellias"), role: "button", class: "btn bg-camellias text-light"
+    .card.shadow.col-xs-12.col-lg-5.col-xl-4.px-0
+      = image_tag "arums.jpg", class: "card-img-top", alt: t("gites.hortensias.name")
+      .card-body
+        h3
+          = t("gites.arums.name")
+        hr
+        .d-flex.row.text-center.justify-content-around
+          .gite-info.pb-3
+            i.fas.fa-home.fa-3x.text-arums
+            br
+            small.text-arums 
+              = t("gites.surface")
+            br
+            = t("gites.arums.surface")
+          .gite-info.pb-3
+            i.fas.fa-bed.fa-3x.text-arums
+            br
+            small.text-arums
+              = t("gites.bedrooms")
+            br
+            = t("gites.arums.bedrooms")
+          .gite-info.pb-3
+            i.fas.fa-users.fa-3x.text-arums
+            br
+            small.text-arums
+              = t("gites.beds")
+            br
+            = t("gites.arums.beds")
+        hr
+        p.text-center
+          = link_to t("gites.button"), t("paths.arums"), role: "button", class: "btn bg-arums text-light"
+    .card.shadow.col-xs-12.col-lg-5.col-xl-4.px-0
+      = image_tag "hortensias.jpg", class: "card-img-top", alt: t("gites.hortensias.name")
+      .card-body
+        h3 
+          = t("gites.hortensias.name")
+        hr
+        .d-flex.row.text-center.justify-content-around
+          .gite-info.pb-3
+            i.fas.fa-home.fa-3x.text-hortensias
+            br
+            small.text-hortensias 
+              = t("gites.surface")
+            br
+            = t("gites.hortensias.surface")
+          .gite-info.pb-3
+            i.fas.fa-bed.fa-3x.text-hortensias
+            br
+            small.text-hortensias
+              = t("gites.bedrooms")
+            br
+            = t("gites.hortensias.bedrooms")
+          .gite-info.pb-3
+            i.fas.fa-users.fa-3x.text-hortensias
+            br
+            small.text-hortensias
+              = t("gites.beds")
+            br
+            = t("gites.hortensias.beds")
+        hr
+        p.text-center
+          = link_to t("gites.button"), t("paths.hortensias"), role: "button", class: "btn bg-hortensias text-light"
+  = partial "backtotop"

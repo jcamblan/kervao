@@ -1,0 +1,100 @@
+= content_tag :div, class: "text-center title-#{gite}"
+  h1.pt-5.d-inline-block
+    = t("gites.h2")
+    |  /&nbsp;
+  h2.pb-5.d-inline-block
+    = t("gites.#{gite}.name")
+  p 
+    = t("gites.#{gite}.headline")
+= content_tag :div, class: "container-fluid pt-3 icons-#{gite}"
+  .d-flex.row.text-center.justify-content-center
+    .gite-info.pb-3.px-5
+      i.fas.fa-home.fa-3x
+      br
+      = content_tag :small, class: "text-#{gite}"
+        = t("gites.surface")
+      br
+      = t("gites.#{gite}.surface")
+    .gite-info.pb-3.px-5
+      i.fas.fa-bed.fa-3x
+      br
+      = content_tag :small, class: "text-#{gite}"
+        = t("gites.bedrooms")
+      br
+      = t("gites.#{gite}.bedrooms")
+    .gite-info.pb-3.px-5
+      i.fas.fa-users.fa-3x
+      br
+      = content_tag :small, class: "text-#{gite}"
+        = t("gites.beds")
+      br
+      = t("gites.#{gite}.beds")
+    .gite-info.pb-3.px-5
+      i.fas.fa-shower.fa-3x
+      br
+      = content_tag :small, class: "text-#{gite}"
+        = t("gites.shower_room")
+      br
+      = t("gites.#{gite}.shower_room")
+    .gite-info.pb-3.px-5
+      i.fas.fa-parking.fa-3x
+      br
+      = content_tag :small, class: "text-#{gite}"
+        = t("gites.parking")
+      br
+      = t("gites.#{gite}.parking")
+    = if t("gites.#{gite}.wheelchair") == "Oui"
+      .gite-info.pb-3.px-5
+        i.fab.fa-accessible-icon.fa-3x
+        br
+        = content_tag :small, class: "text-#{gite}"
+          = t("gites.wheelchair")
+        br
+        = t("gites.#{gite}.wheelchair")
+section.container.py-5
+  #carousel-gite.carousel.slide data-ride="carousel" 
+    ol.carousel-indicators
+      li.active data-slide-to="0" data-target="#carouselExampleIndicators" 
+      li data-slide-to="1" data-target="#carouselExampleIndicators" 
+      li data-slide-to="2" data-target="#carouselExampleIndicators" 
+    .carousel-inner
+      .carousel-item.active
+        = image_tag "header_.jpg", class: "d-block img-fluid mx-auto", alt: "First slide"
+      .carousel-item
+        = image_tag "header_.jpg", class: "d-block img-fluid", alt: "First slide"
+      .carousel-item
+        = image_tag "header_.jpg", class: "d-block img-fluid", alt: "First slide"
+    a.carousel-control-prev data-slide="prev" href="#carouselExampleIndicators" role="button" 
+      span.carousel-control-prev-icon aria-hidden="true" 
+      span.sr-only Previous
+    a.carousel-control-next data-slide="next" href="#carouselExampleIndicators" role="button" 
+      span.carousel-control-next-icon aria-hidden="true" 
+      span.sr-only Next
+
+.container.gite
+  .row
+    .col-12
+      hr
+      = t("gites.#{gite}.block1")
+      hr
+
+= content_tag :div, nil, class: "container-fluid py-5 bg-#{gite} pattern"
+
+.container.gite.pb-5
+  .row
+    .col-12.col-sm-6
+      hr
+      h3 = t("gites.#{gite}.subtitle2")
+      = t("gites.#{gite}.block2")
+      hr
+    .col-12.col-sm-6
+      hr
+      h3 = t("gites.#{gite}.subtitle3")
+      = t("gites.#{gite}.block3")
+      hr
+      = if t("gites.#{gite}.block4") != ""
+        hr
+        h3 = t("gites.#{gite}.subtitle4")
+        = t("gites.#{gite}.block4")
+        hr
+  = partial "backtotop"

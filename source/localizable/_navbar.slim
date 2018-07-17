@@ -1,0 +1,26 @@
+  = content_tag :nav, id: "top", class: "navbar navbar-expand-lg navbar-dark bg-#{bg}"
+    = if I18n.locale.to_s == "fr"
+      = link_to t("navbar.title"), "/index.html", class: "navbar-brand"
+    = if I18n.locale.to_s == "en"
+      = link_to t("navbar.title"), "/en/index.html", class: "navbar-brand"
+    = if current_page.path == "index.html" || current_page.path == "#{I18n.locale.to_s}/index.html" 
+      button.navbar-toggler aria-controls="navbarNav" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNav" data-toggle="collapse" type="button" 
+        span.navbar-toggler-icon
+      #navbarNav.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item
+            a.nav-link.scroll href="#gites"
+              = t("navbar.gites")
+          li.nav-item
+            a.nav-link.scroll href="#findus"
+              = t("navbar.find_us")
+          li.nav-item
+            a.nav-link.scroll href="#prices"
+              = t("navbar.prices")
+          li.nav-item
+            a.nav-link.scroll href="#contactus"
+              = t("navbar.contact")
+    = if I18n.locale.to_s == "fr"
+      = link_to "EN", "/en/index.html", role: "button", class: "btn btn-#{bg} ml-auto"
+    = if I18n.locale.to_s == "en"
+      = link_to "FR", "/index.html", role: "button", class: "btn btn-#{bg} ml-auto"
