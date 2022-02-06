@@ -21,15 +21,15 @@
           .form-check.form-check-inline
             = t("contact.form.reason")
             | &nbsp;
-            input#inlineRadio1.form-check-input name="inlineRadioOptions" type="radio" value="option1" /
-            label.form-check-label for="inlineRadio1"
+            input#inlineRadio1.form-check-input name="reasonInformation" type="radio" value="information" /
+            label.form-check-label for="reasonInformation"
               = t("contact.form.information")
             | &nbsp;
-            input#inlineRadio2.form-check-input name="inlineRadioOptions" type="radio" value="option2" /
-            label.form-check-label for="inlineRadio2"
+            input#inlineRadio2.form-check-input name="reasonBooking" type="radio" value="booking" /
+            label.form-check-label for="reasonBooking"
               = t("contact.form.booking")
         .form-group
-          input#exampleInputEmail1.form-control aria-describedby="emailHelp" placeholder=("Votre nom") type="email" /
+          input#exampleInputEmail1.form-control placeholder=("Votre nom") type="text" /
         .form-group
           input#exampleInputEmail1.form-control aria-describedby="emailHelp" placeholder=("Votre adresse mail") type="email" /
         .form-group
