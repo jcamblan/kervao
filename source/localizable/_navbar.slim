@@ -23,4 +23,4 @@
     = if I18n.locale.to_s == "fr"
       = link_to "EN", "/en/index.html", role: "button", class: "btn btn-#{bg} ml-auto"
     = if I18n.locale.to_s == "en"
-      = link_to "FR", "/index.html", role: "button", class: "btn btn-#{bg} ml-auto"
+      = link_to "FR", "/fr/index.html", relative: true, role: "button", class: "btn btn-#{bg} ml-auto"

@@ -1,24 +1,22 @@
 = content_tag :footer, id: "contactus", class: "contactus container-fluid bg-#{bg} py-5 px-1 text-center text-light"
   h2.mb-5.mx-auto
-    = t("contact.h2")
+    = dato.contact.title
   .row.px-0.mx-auto
     .col.col-lg-3.ml-auto
       .d-flex.flex-column.justify-content-center
         i.far.fa-2x.fa-envelope
-        p.mt-2
-          | Jean-Pierre & Gisèle MADEC
-          br
-          | 23 rue Kervao
-          br
-          | 29830 PLOUDALMEZEAU
+        .mt-2 = markdownify(dato.contact.address)
+
       .text-light.d-flex.flex-column.justify-content-center
         i.fas.fa-2x.fa-phone
-        p.mt-2 02.98.48.65.63
+        p.mt-2 = dato.contact.phone_number
+
       .text-light.d-flex.flex-column.justify-content-center
         i.fas.fa-2x.fa-at
-        p.mt-2 gjpmadec@wanadoo.fr
+        p.mt-2 = dato.contact.email
+
     .col.col-lg-5.mr-auto
-      form.text-left
+      form.text-left name="contact" method="POST" data-netlify="true"
         .form-group
           .form-check.form-check-inline
             = t("contact.form.reason")
@@ -36,4 +34,4 @@
           input#exampleInputEmail1.form-control aria-describedby="emailHelp" placeholder=("Votre adresse mail") type="email" /
         .form-group
           textarea#exampleFormControlTextarea1.form-control placeholder=("Votre message") rows="3" 
-        = button_tag t("contact.form.submit"), class: "btn btn-#{bg}", role: "button"
+        = button_tag t("contact.form.submit"), class: "btn btn-#{bg}", role: "button", type: :submit
