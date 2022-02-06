@@ -51,6 +51,8 @@ dato.cottages.each do |cottage|
         locale: :en
 end
 
+ignore '/localizable/gite.html.slim'
+
 # Methods defined in the helpers block are available in templates
 helpers do
   def markdownify(text)
