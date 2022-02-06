@@ -4,35 +4,27 @@ section#findus.findus.container-fluid.text-center.py-5
   .row.justify-content-center
     .col-xs-12.col-md-5.text-justify
       h3 
-        = t("findus.kervao.h3")
+        = dato.home.where_is_kervao_title
       p
-        = t("findus.kervao.text")
+        = dato.home.where_is_kervao_description
       h3 
-        = t("findus.ploudal.h3")
+        = dato.home.where_is_ploudal_title
       p 
-        = t("findus.ploudal.text")
+        = dato.home.where_is_ploudal_description
       h3 
-        = t("findus.come.h3")
+        = dato.home.how_come_title
       p.text-center 
-       = t("findus.come.from_paris")
+       = dato.home.how_come_subtitle
       .d-flex.row
         i.fas.fa-car.fa-3x.col-2.text-secondary.mb-4
-        p.col-10.mb-4
-          = t("findus.come.car")
+        .col-10.mb-4 = markdownify(dato.home.by_car)
+
         i.fas.fa-plane.fa-3x.col-2.text-secondary.mb-4
-        p.col-10.mb-4
-          = t("findus.come.plane")
-          br
-          a href="https://www.brest.aeroport.bzh"
-            i.fas.fa-external-link-alt
-            = t("findus.come.plane_link")
+        .col-10.mb-4 = markdownify(dato.home.by_plane)
+
         i.fas.fa-train.fa-3x.col-2.text-secondary
-        p.col-10
-          = t("findus.come.train")
-          br
-          a href="http://www.sncf.fr/"
-            i.fas.fa-external-link-alt
-            = t("findus.come.train_link")
+        .col-10 = markdownify(dato.home.by_rail)
+
     /! MAP
     .col.col-xs-12.col-md-5.mt-xs-3.mt-md-0
       #map.shadow

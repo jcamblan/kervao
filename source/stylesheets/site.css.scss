@@ -111,7 +111,6 @@ body h2 {
 
 // TEXT INTRO
 .intro-img {
-  background-image: image-url("kervao.jpg");
   background-size: cover;
   background-position: center;
   height: calc(100vh - 56px);
@@ -218,4 +217,104 @@ body h2 {
 footer h2 {
   color: $h2clair;
   text-shadow: 2px 2px $h2clairShadow;
+}
+
+
+/*
+NOTES:
+1. dragging is enabled;
+2. clicking is enabled;
+3. scrolling using arrow keys is enabled;
+4. left and right buttons (on the screen) are disabled;
+5. dots are disabled
+*/
+
+// * {
+//   box-sizing: border-box;
+// }
+
+// .toto {
+//   background-color: #f78764;
+//   overflow: hidden;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin: 0;
+//   padding: 0;
+// }
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 100;
+
+  &.animation-reveal {
+    animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.slide {
+  margin: 0 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 35, 0.25);
+  border-radius: 8px;
+  height: 300px;
+  width: 500px;
+  display: block;
+  position: relative;
+  background-position: 50%;
+  background-size: cover;
+  cursor: pointer;
+  transition: width 0.16s ease-in-out, height 0.16s ease-in-out;
+}
+
+.slide.is-custom-selected {
+  width: 500px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-bg {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.flickity-enabled {
+  position: relative;
+}
+
+.flickity-enabled:focus {
+  outline: none;
+}
+
+.flickity-viewport {
+  position: relative;
+  height: 100%;
+}
+
+.flickity-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }

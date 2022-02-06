@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 require 'slim'
+require 'redcarpet'
 
 # Avoid HTML minification for people who don't know slim
 Slim::Engine.default_options[:pretty] = true
@@ -15,8 +18,11 @@ page '/*.json', layout: false
 page '/*.txt', layout: false
 
 activate :directory_indexes
-activate :i18n, :mount_at_root => :fr
+activate :i18n, langs: %i[en fr], mount_at_root: false
+activate :dato
 
+set :relative_links, true
+redirect 'index.html', to: '/fr/index.html'
 
 # With alternative layout
 # page '/path/to/file.html', layout: :otherlayout
@@ -34,22 +40,30 @@ activate :i18n, :mount_at_root => :fr
 #   activate :livereload
 # end
 
+dato.cottages.each do |cottage|
+  proxy "/fr/#{cottage.reference}.html", 'localizable/gite.html',
+        locals: { cottage: cottage },
+        ignore: true,
+        locale: :fr
+  proxy "/en/#{cottage.reference}.html", 'localizable/gite.html',
+        locals: { cottage: cottage },
+        ignore: true,
+        locale: :en
+end
+
 # Methods defined in the helpers block are available in templates
 helpers do
-  def some_helper
-    'Helping'
-  end
-  def local_path(path, options={})
-    lang = options[:language] ? options[:language] : I18n.locale.to_s
-    if lang == "fr"
-    	"/#{path}"
-    else
-      "/#{lang}/#{path}"
-    end
+  def markdownify(text)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    markdown.render(text)
   end
 end
 
 # Build-specific configuration
 configure :build do
-  set :http_prefix, '/_kervao'
+  activate :minify_html
+end
+
+configure :development do
+  activate :livereload
 end

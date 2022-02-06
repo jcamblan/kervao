@@ -1,16 +1,9 @@
----
-title: Les gîtes de Kervao
----
 /! HEADER
 header
   /! NAVBAR
   = partial "navbar", :locals => { :bg => "hortensias" }
   /! FIN NAVBAR
 /! FIN HEADER
-
-/! CAROUSEL
-/! = partial "carousel"
-/! FIN - CAROUSEL
 
 /! INTRO
 = partial "intro"
@@ -21,7 +14,7 @@ header
 /! FIN - NOS GITES
 
 /! IMAGE DE SEPARATION
-= content_tag :div, nil, class: "parallax-window container-fluid text-center d-none d-md-block", data: { parallax: "scroll", "image-src": image_path("kervao3.jpg") }
+= content_tag :div, nil, class: "parallax-window container-fluid text-center d-none d-md-block", data: { parallax: "scroll", "image-src": dato.home.banner2.url }
 /! FIN - IMAGE DE SEPARATION
 
 /! NOUS TROUVER
@@ -29,7 +22,7 @@ header
 /! FIN - NOUS TROUVER
 
 /! IMAGE DE SEPARATION
-= content_tag :div, nil, class: "parallax-window container-fluid text-center d-none d-md-block", data: { parallax: "scroll", "image-src": image_path("kervao2.jpg") }
+= content_tag :div, nil, class: "parallax-window container-fluid text-center d-none d-md-block", data: { parallax: "scroll", "image-src": dato.home.banner3.url }
 /! FIN - IMAGE DE SEPARATION
 
 /! TARIFS

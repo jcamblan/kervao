@@ -1,0 +1,16 @@
+---
+title: Les gîtes de Kervao
+---
+/! HEADER
+header
+  /! NAVBAR
+  = partial "navbar", :locals => { :page => "gite", :bg => cottage.reference, cottage: cottage }
+  /! FIN NAVBAR
+/! FIN HEADER
+
+= partial "gite", :locals => { cottage: cottage }
+
+/! FOOTER
+= partial "footer", :locals => { :bg => cottage.reference, cottage: cottage }
+/! FIN - FOOTER
+

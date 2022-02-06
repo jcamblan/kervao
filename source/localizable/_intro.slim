@@ -1,10 +1,10 @@
 section#intro.intro.container-fluid.px-0
-  .intro-img.px-0
+  .intro-img.px-0 style="background-image: url(#{dato.home.top_banner.url});"
   hr.w-25.mt-5/
   .text-intro.group.pt-3.pb-2.col-10.mx-auto
     .quote-container
       blockquote
-        = t("intro.text")
+        = markdownify(dato.home.intro)
       cite.float-right 
-        = t("intro.author")
+        = markdownify(dato.home.signature)
   hr.w-25.mb-5/
