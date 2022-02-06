@@ -20,14 +20,15 @@
         .form-group
           .form-check.form-check-inline
             label.form-check-label
-              | Motif de votre message :&nbsp;
+              = t('contact.form.reason')
+              | &nbsp;
               select name="reason[]"
-                option value="booking" Réservation
-                option value="information" Renseignement
+                option value="booking" = t('contact.form.booking')
+                option value="information" = t('contact.form.information')
         .form-group
-          input#exampleInputEmail1.form-control placeholder=("Votre nom") type="text" name="name" /
+          input#exampleInputEmail1.form-control placeholder=(t('contact.form.ph_your_name')) type="text" name="name" /
         .form-group
-          input#exampleInputEmail1.form-control placeholder=("Votre adresse mail") type="email" name="email" /
+          input#exampleInputEmail1.form-control placeholder=(t('contact.form.ph_your_email')) type="email" name="email" /
         .form-group
-          textarea#exampleFormControlTextarea1.form-control placeholder=("Votre message") rows="3" name="message"
+          textarea#exampleFormControlTextarea1.form-control placeholder=(t('contact.form.ph_your_msg')) rows="3" name="message"
         = button_tag t("contact.form.submit"), class: "btn btn-#{bg}", type: :submit

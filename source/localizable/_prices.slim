@@ -9,12 +9,9 @@ section#prices.prices.container-fluid.text-center.py-5
         thead
           tr
             th.d-none.d-sm-table-cell.bg-transparent style="border-top:0;"
-            th.bg-camellias
-              span = t("prices.camellias")
-            th.bg-hortensias
-              span = t("prices.hortensias")
-            th.bg-arums
-              span = t("prices.arums")
+            - dato.cottages.each do |cottage|
+              th class=["bg-#{cottage.reference}"]
+                span = cottage.name
         tbody
           - dato.pricing.periods.each do |period|
             tr.d-table-row.d-sm-none
@@ -26,8 +23,8 @@ section#prices.prices.container-fluid.text-center.py-5
                 = period.title
                 br
                 small = period.subtitle
-              td.align-middle = "#{period.price_camellias} €"
-              td.align-middle = "#{period.price_hortensias} €"
-              td.align-middle = "#{period.price_arums} €"
+              td.align-middle = "#{period.send("price_#{dato.cottages[0].reference}")} €"
+              td.align-middle = "#{period.send("price_#{dato.cottages[1].reference}")} €"
+              td.align-middle = "#{period.send("price_#{dato.cottages[2].reference}")} €"
 
   = partial "backtotop"

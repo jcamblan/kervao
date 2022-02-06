@@ -19,21 +19,21 @@ section#gites.gites.container-fluid.text-center.py-5
               i.fas.fa-home.fa-3x class=["text-#{cottage.reference}"]
               br
               small class=["text-#{cottage.reference}"]
-                = t('gites.surface')
+                = t('cottages.surface')
               br
               = cottage.surface
             .gite-info.pb-3
               i.fas.fa-bed.fa-3x class=["text-#{cottage.reference}"]
               br
               small class=["text-#{cottage.reference}"]
-                = t('gites.bedrooms')
+                = t('cottages.bedrooms')
               br
               = cottage.room_count
             .gite-info.pb-3
               i.fas.fa-users.fa-3x class=["text-#{cottage.reference}"]
               br
               small class=["text-#{cottage.reference}"]
-                = t('gites.beds')
+                = t('cottages.beds')
               br
               = cottage.beddings
             - if cottage.disabled_access
@@ -41,11 +41,11 @@ section#gites.gites.container-fluid.text-center.py-5
                 i.fab.fa-accessible-icon.fa-3x class=["text-#{cottage.reference}"]
                 br
                 = content_tag :small, class: "text-#{cottage.reference}"
-                  = t('gites.wheelchair')
+                  = t('cottages.wheelchair')
                 br
                 = t('general.yes_word')
           hr
           p.text-center
-            = link_to t('gites.button'), "./#{cottage.reference}.html", role: "button", class: "btn bg-#{cottage.reference} text-light"
+            = link_to t('cottages.button'), "./#{cottage.reference}.html", role: "button", class: "btn bg-#{cottage.reference} text-light"
 
   = partial "backtotop"
