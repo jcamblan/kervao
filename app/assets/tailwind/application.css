@@ -1,1 +1,38 @@
 @import "tailwindcss";
+
+@theme {
+  --color-arums: #7b9b38;
+  --color-camellias: #a42c2d;
+  --color-hortensias: #3d4961;
+  --color-beige: #f9f9eb;
+
+  --font-sans: "Raleway", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Raleway", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Cottage-specific accents — referenced dynamically as
+   .title-{reference} / .btn-{reference} from ERB templates,
+   so they live as plain CSS rather than Tailwind utilities. */
+
+.title-arums      { color: var(--color-arums); }
+.title-camellias  { color: var(--color-camellias); }
+.title-hortensias { color: var(--color-hortensias); }
+
+.btn-arums      { border-color: var(--color-arums);      color: var(--color-arums); }
+.btn-camellias  { border-color: var(--color-camellias);  color: var(--color-camellias); }
+.btn-hortensias { border-color: var(--color-hortensias); color: var(--color-hortensias); }
+
+.btn-arums:hover      { background-color: var(--color-arums);      color: white; }
+.btn-camellias:hover  { background-color: var(--color-camellias);  color: white; }
+.btn-hortensias:hover { background-color: var(--color-hortensias); color: white; }
+
+/* Make the Leaflet map play nicely with our utility classes. */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.25rem;
+}
+
+/* Mailer prose-friendly typography fallback */
+.prose ul, .prose ol { list-style: revert; padding-left: 1.5rem; }
+.prose a { color: var(--color-camellias); text-decoration: underline; }
