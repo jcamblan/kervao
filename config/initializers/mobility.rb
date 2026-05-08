@@ -1,6 +1,6 @@
 Mobility.configure do |config|
   config.plugins do
-    backend :jsonb
+    backend :container
 
     active_record
     reader
