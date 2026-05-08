@@ -1,0 +1,10 @@
+<h1>Nouveau message depuis le site Kervao</h1>
+
+<table>
+  <tr><th align="left">Motif</th><td><%= @subject %></td></tr>
+  <tr><th align="left">Nom</th><td><%= @name %></td></tr>
+  <tr><th align="left">Email</th><td><a href="mailto:<%= @email %>"><%= @email %></a></td></tr>
+</table>
+
+<h2>Message</h2>
+<p><%= simple_format(@message) %></p>
