@@ -1,31 +1,57 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  nav:
+    cottages: "Cottages"
+    find_us: "Find Us"
+    prices: "Prices"
+    contact: "Contact"
+
+  cottages:
+    surface: "Surface"
+    bedrooms: "Bedrooms"
+    beds: "Beds"
+    shower_room: "Shower room"
+    parking: "Parking"
+    wheelchair: "Disabled access"
+    see_more: "See more"
+    back_to_list: "Back to cottages"
+    photos: "Photos"
+
+  contact:
+    form:
+      title: "Contact Us"
+      name: "Name"
+      email: "Email"
+      subject: "Subject"
+      message: "Message"
+      submit: "Send"
+      booking: "Booking"
+      information: "Information"
+      success: "Your message has been sent. We will get back to you shortly."
+      error: "An error occurred. Please try again."
+
+  back_to_top: "Back to top"
+
+  admin:
+    nav:
+      dashboard: "Dashboard"
+      home_page: "Home page"
+      cottages: "Cottages"
+      pricing: "Pricing"
+      contact_info: "Contact info"
+    actions:
+      edit: "Edit"
+      save: "Save"
+      cancel: "Cancel"
+      delete: "Delete"
+      add: "Add"
+      new_cottage: "New cottage"
+      new_period: "Add a period"
+    locale_tabs:
+      fr: "French"
+      en: "English"
+    cottages:
+      title: "Cottages"
+      main_picture: "Main picture"
+      gallery: "Photo gallery"
+      details: "Additional details"
+      add_detail: "Add a detail block"
