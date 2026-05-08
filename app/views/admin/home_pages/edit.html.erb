@@ -1,0 +1,46 @@
+<h1 class="text-2xl font-light mb-8"><%= t("admin.nav.home_page") %></h1>
+
+<%= form_with model: @home_page, url: admin_home_page_path, method: :patch, multipart: true, class: "max-w-4xl space-y-8" do |f| %>
+  <section class="bg-white p-6 rounded shadow">
+    <h2 class="text-lg font-medium mb-4">Bannières</h2>
+    <% [:top_banner, :banner2, :banner3].each do |banner| %>
+      <div class="mb-6">
+        <label class="block text-sm uppercase tracking-wider text-gray-700 mb-2"><%= banner.to_s.humanize %></label>
+        <% if @home_page.public_send(banner).attached? %>
+          <%= image_tag @home_page.public_send(banner), class: "w-48 h-32 object-cover rounded mb-2" %>
+        <% end %>
+        <%= f.file_field banner, class: "block text-sm" %>
+      </div>
+    <% end %>
+  </section>
+
+  <section class="bg-white p-6 rounded shadow">
+    <h2 class="text-lg font-medium mb-4">Introduction</h2>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :intro, label: "Citation d'intro", type: :text_area %>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :signature, label: "Signature", type: :text_area, rows: 2 %>
+  </section>
+
+  <section class="bg-white p-6 rounded shadow">
+    <h2 class="text-lg font-medium mb-4">Section Gîtes</h2>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :cottages_title, label: "Titre" %>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :cottages_description, label: "Description", type: :text_area %>
+  </section>
+
+  <section class="bg-white p-6 rounded shadow">
+    <h2 class="text-lg font-medium mb-4">Section Nous trouver</h2>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :find_us_title, label: "Titre principal" %>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :where_is_kervao_title, label: "Titre Kervao" %>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :where_is_kervao_description, label: "Description Kervao", type: :text_area %>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :where_is_ploudal_title, label: "Titre Ploudal" %>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :where_is_ploudal_description, label: "Description Ploudal", type: :text_area %>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :how_come_title, label: "Titre Accès" %>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :how_come_subtitle, label: "Sous-titre Accès" %>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :by_car, label: "Par voiture", type: :text_area %>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :by_plane, label: "Par avion", type: :text_area %>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :by_rail, label: "Par train", type: :text_area %>
+  </section>
+
+  <div class="flex gap-4">
+    <%= f.submit t("admin.actions.save"), class: "px-6 py-2 bg-gray-900 text-white uppercase tracking-wider text-sm rounded hover:bg-gray-700 cursor-pointer" %>
+  </div>
+<% end %>

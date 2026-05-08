@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <title>Admin — Kervao</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-gray-100 text-gray-800 antialiased min-h-screen">
+    <div class="flex min-h-screen">
+      <aside class="w-64 bg-gray-900 text-gray-100 p-6 space-y-2">
+        <h1 class="text-lg font-light uppercase tracking-wider mb-8">
+          <%= link_to "Kervao admin", admin_root_path, class: "hover:text-white" %>
+        </h1>
+
+        <nav class="space-y-1 text-sm">
+          <%= link_to t("admin.nav.dashboard"), admin_root_path, class: "block px-3 py-2 rounded hover:bg-gray-800" %>
+          <%= link_to t("admin.nav.home_page"), edit_admin_home_page_path, class: "block px-3 py-2 rounded hover:bg-gray-800" %>
+          <%= link_to t("admin.nav.cottages"), admin_cottages_path, class: "block px-3 py-2 rounded hover:bg-gray-800" %>
+          <%= link_to t("admin.nav.pricing"), edit_admin_pricing_path, class: "block px-3 py-2 rounded hover:bg-gray-800" %>
+          <%= link_to t("admin.nav.contact_info"), edit_admin_contact_info_path, class: "block px-3 py-2 rounded hover:bg-gray-800" %>
+        </nav>
+
+        <div class="pt-8 mt-8 border-t border-gray-800 text-xs">
+          <%= link_to "← Voir le site", root_path, class: "text-gray-400 hover:text-white" %>
+        </div>
+      </aside>
+
+      <main class="flex-1 p-8 overflow-auto">
+        <% flash.each do |type, message| %>
+          <div class="mb-6 px-4 py-3 rounded <%= type == 'notice' ? 'bg-green-100 text-green-800 border border-green-200' : 'bg-red-100 text-red-800 border border-red-200' %>">
+            <%= message %>
+          </div>
+        <% end %>
+
+        <%= yield %>
+      </main>
+    </div>
+  </body>
+</html>

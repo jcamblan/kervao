@@ -1,0 +1,39 @@
+<div class="flex items-center justify-between mb-8">
+  <h1 class="text-2xl font-light"><%= t("admin.nav.cottages") %></h1>
+  <%= link_to t("admin.actions.new_cottage"), new_admin_cottage_path,
+      class: "px-4 py-2 bg-gray-900 text-white uppercase tracking-wider text-sm rounded hover:bg-gray-700" %>
+</div>
+
+<div class="bg-white rounded shadow overflow-hidden">
+  <table class="w-full">
+    <thead class="bg-gray-50 border-b border-gray-200">
+      <tr>
+        <th class="text-left px-4 py-3 text-xs uppercase tracking-wider text-gray-500">Référence</th>
+        <th class="text-left px-4 py-3 text-xs uppercase tracking-wider text-gray-500">Nom</th>
+        <th class="text-left px-4 py-3 text-xs uppercase tracking-wider text-gray-500">Surface</th>
+        <th class="text-left px-4 py-3 text-xs uppercase tracking-wider text-gray-500">Couchages</th>
+        <th class="text-right px-4 py-3 text-xs uppercase tracking-wider text-gray-500">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cottages.each do |cottage| %>
+        <tr class="border-b border-gray-100 hover:bg-gray-50">
+          <td class="px-4 py-3 font-mono text-sm"><%= cottage.reference %></td>
+          <td class="px-4 py-3"><%= cottage.name_fr %></td>
+          <td class="px-4 py-3 text-sm text-gray-600"><%= cottage.surface %></td>
+          <td class="px-4 py-3 text-sm text-gray-600"><%= cottage.beddings %></td>
+          <td class="px-4 py-3 text-right space-x-4 text-sm">
+            <%= link_to t("admin.actions.edit"), edit_admin_cottage_path(cottage), class: "text-blue-600 hover:underline" %>
+            <%= button_to t("admin.actions.delete"), admin_cottage_path(cottage),
+                method: :delete,
+                form: { data: { turbo_confirm: "Supprimer #{cottage.name_fr || cottage.reference} ?" } },
+                class: "text-red-600 hover:underline cursor-pointer bg-transparent border-0 p-0 inline" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% if @cottages.empty? %>
+    <div class="p-8 text-center text-gray-500">Aucun gîte pour le moment.</div>
+  <% end %>
+</div>

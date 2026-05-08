@@ -6,6 +6,8 @@ Mobility.configure do |config|
     reader
     writer
 
+    locale_accessors [:fr, :en]
+
     query
     cache
     dirty

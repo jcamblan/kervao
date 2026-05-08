@@ -1,0 +1,29 @@
+<%# locals: (form:, attribute:, label:, type: :text_field, rows: 4) %>
+<div class="mb-4" data-controller="locale-tabs">
+  <label class="block text-sm uppercase tracking-wider text-gray-700 mb-2"><%= label %></label>
+
+  <div class="flex gap-1 mb-2 border-b border-gray-300">
+    <% I18n.available_locales.each_with_index do |locale, idx| %>
+      <button type="button"
+              data-action="locale-tabs#switch"
+              data-locale-tabs-target="tab"
+              data-locale="<%= locale %>"
+              class="px-4 py-1 text-xs uppercase tracking-wider border-b-2 <%= idx == 0 ? 'border-gray-900 text-gray-900' : 'border-transparent text-gray-500 hover:text-gray-700' %>">
+        <%= t("admin.locale_tabs.#{locale}") %>
+      </button>
+    <% end %>
+  </div>
+
+  <% I18n.available_locales.each_with_index do |locale, idx| %>
+    <div data-locale-tabs-target="panel" data-locale="<%= locale %>" class="<%= 'hidden' unless idx == 0 %>">
+      <% field_name = "#{attribute}_#{locale}" %>
+      <% if type == :text_area %>
+        <%= form.text_area field_name, rows: rows,
+            class: "w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400 font-mono text-sm" %>
+      <% else %>
+        <%= form.text_field field_name,
+            class: "w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

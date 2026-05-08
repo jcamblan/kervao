@@ -8,6 +8,8 @@ class Cottage < ApplicationRecord
   has_one_attached :main_picture
   has_many_attached :photos
 
+  accepts_nested_attributes_for :cottage_details, allow_destroy: true, reject_if: :all_blank
+
   validates :reference, presence: true, uniqueness: true, format: { with: /\A[a-z0-9-]+\z/ }
 
   scope :ordered, -> { order(:position) }
