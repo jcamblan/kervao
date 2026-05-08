@@ -1,0 +1,37 @@
+<%# locals: (home_page:) %>
+<section class="px-8 pt-32 pb-20">
+  <div class="grid lg:grid-cols-[1fr_1.2fr] gap-20 items-center max-w-7xl mx-auto">
+    <div data-controller="reveal" data-reveal class="relative">
+      <div class="rounded-[24px] overflow-hidden aspect-[4/5]">
+        <% if home_page.banner3.attached? %>
+          <%= image_tag home_page.banner3, class: "w-full h-full object-cover" %>
+        <% elsif home_page.top_banner.attached? %>
+          <%= image_tag home_page.top_banner, class: "w-full h-full object-cover" %>
+        <% end %>
+      </div>
+      <div class="instrument absolute -top-4 -right-4 bg-terra text-bone px-5 py-2.5 rounded-full text-lg rotate-[4deg] not-italic">
+        <span class="instrument"><%= I18n.locale == :fr ? "Bienvenue à Kervao" : "Welcome to Kervao" %></span>
+      </div>
+    </div>
+
+    <div data-controller="reveal" data-reveal data-reveal-delay="1">
+      <span class="badge mb-6"><%= I18n.locale == :fr ? "Mot d'accueil" : "A word of welcome" %></span>
+      <h2 class="display text-4xl sm:text-5xl lg:text-[56px] leading-[1.05] m-0 mb-6">
+        <% if home_page.intro.present? %>
+          <%= markdown(home_page.intro.lines.first) %>
+        <% end %>
+      </h2>
+      <div class="prose text-slate text-base leading-relaxed">
+        <%= markdown(home_page.intro) %>
+      </div>
+      <div class="flex items-center gap-4 mt-8 pt-5 border-t border-line">
+        <div class="w-12 h-12 rounded-full bg-paper text-terra flex items-center justify-center display text-2xl">M</div>
+        <div>
+          <div class="display text-lg">Gisèle &amp; Jean-Pierre Madec</div>
+          <div class="text-xs text-muted"><%= I18n.locale == :fr ? "Propriétaires · Gîtes de Kervao" : "Owners · Gîtes de Kervao" %></div>
+        </div>
+        <div class="instrument ml-auto text-terra text-lg hidden sm:block">Ken ar c'hentañ</div>
+      </div>
+    </div>
+  </div>
+</section>

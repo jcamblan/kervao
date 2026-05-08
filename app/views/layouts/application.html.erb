@@ -17,7 +17,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&family=Instrument+Serif&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
@@ -26,7 +26,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="font-sans text-gray-800 antialiased">
+  <body class="font-sans antialiased">
     <% flash.each do |type, message| %>
       <div class="fixed top-4 right-4 z-50 px-4 py-3 rounded shadow-lg <%= type == 'notice' ? 'bg-green-600 text-white' : 'bg-red-600 text-white' %>">
         <%= message %>

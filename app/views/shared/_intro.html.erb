@@ -1,19 +1,69 @@
-<%# locals: (home_page:) %>
-<section id="intro" class="pt-16">
-  <% if home_page.top_banner.attached? %>
-    <div class="w-full h-[60vh] sm:h-[80vh] bg-cover bg-center"
-         style="background-image: url('<%= url_for(home_page.top_banner) %>')">
-    </div>
-  <% end %>
+<%# locals: (home_page:, cottages:) %>
+<section class="px-8 pt-8 relative">
+  <div class="relative rounded-[28px] overflow-hidden bg-ink min-h-[460px] aspect-[21/8]">
+    <% if home_page.top_banner.attached? %>
+      <%= image_tag home_page.top_banner,
+          alt: "Gîtes de Kervao",
+          class: "absolute inset-0 w-full h-full object-cover opacity-80" %>
+    <% end %>
+    <div class="absolute inset-0" style="background: linear-gradient(120deg, rgba(38,38,42,0.55) 0%, rgba(38,38,42,0.15) 50%, transparent 80%);"></div>
 
-  <div class="max-w-3xl mx-auto px-4 py-16 sm:py-24 text-center">
-    <hr class="w-16 mx-auto border-gray-400 mb-8">
-    <blockquote class="text-xl sm:text-2xl font-light italic leading-relaxed prose prose-lg mx-auto">
-      <%= markdown(home_page.intro) %>
-    </blockquote>
-    <div class="mt-6 text-base text-gray-600 prose mx-auto">
-      <%= markdown(home_page.signature) %>
+    <div class="relative h-full flex flex-col justify-between px-8 sm:px-12 lg:px-16 py-12 sm:py-16 text-bone">
+      <div class="flex justify-between items-start gap-4" data-controller="reveal" data-reveal>
+        <span class="badge bg-bone/20 border-bone/35 text-bone backdrop-blur-sm">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 6.9 7.4.6-5.6 4.8 1.7 7.2L12 17.8l-6.1 3.7 1.7-7.2L2 9.5l7.4-.6L12 2z"/></svg>
+          <span>3 ★ · Gîtes de France</span>
+        </span>
+        <span class="badge bob bg-bone/20 border-bone/35 text-bone backdrop-blur-sm">
+          <span class="w-1.5 h-1.5 bg-[#7ed5a3] rounded-full"></span>
+          <%= I18n.locale == :fr ? "Disponibilités été 2026" : "Summer 2026 availability" %>
+        </span>
+      </div>
+
+      <div data-controller="reveal" data-reveal data-reveal-delay="1">
+        <h1 class="display text-[44px] sm:text-6xl lg:text-[96px] leading-[0.95] m-0 -tracking-[0.02em] max-w-4xl">
+          <%= I18n.locale == :fr ? "Une longère, trois gîtes," : "One longère, three cottages," %><br>
+          <span class="instrument text-terra-soft"><%= I18n.locale == :fr ? "tout un pays d'Iroise." : "the heart of Iroise." %></span>
+        </h1>
+        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mt-8">
+          <p class="text-[15px] sm:text-base leading-relaxed opacity-90 max-w-md m-0">
+            <%= I18n.locale == :fr ? "À 600 mètres des dunes de Tréompan, dans le Finistère. Arums, Camélias, Hortensias — accueillis toute l'année." : "600 metres from the Tréompan dunes, in Finistère. Arums, Camellias, Hydrangeas — open all year round." %>
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#gites" class="btn bg-bone text-ink hover:opacity-90"><%= I18n.locale == :fr ? "Voir les gîtes" : "See cottages" %>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn bg-transparent text-bone border border-bone/60 hover:bg-bone/10">
+              <%= I18n.locale == :fr ? "Nous contacter" : "Contact us" %>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <hr class="w-16 mx-auto border-gray-400 mt-8">
+
+    <% if home_page.banner2.attached? %>
+      <div class="hidden lg:block absolute right-8 -bottom-12 w-56 bg-bone p-2.5 rounded-xl shadow-2xl rotate-[2deg]" data-controller="reveal" data-reveal data-reveal-delay="2">
+        <%= image_tag home_page.banner2,
+            class: "w-full aspect-square object-cover rounded-lg block" %>
+        <div class="px-1 pt-2.5 pb-1 flex justify-between items-center text-[11px]">
+          <span class="instrument text-sm">Pays d'Iroise</span>
+          <span class="text-muted">2024</span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div data-controller="reveal" data-reveal data-reveal-delay="3" class="grid grid-cols-2 sm:grid-cols-4 mt-16 lg:mt-20 bg-paper rounded-[18px] py-5 border border-line">
+    <% [
+      ["3", I18n.locale == :fr ? "gîtes indépendants" : "independent cottages"],
+      [cottages.sum(&:beddings).to_s, I18n.locale == :fr ? "personnes en tout" : "guests total"],
+      ["600m", I18n.locale == :fr ? "de la mer" : "from the sea"],
+      ["50m²", I18n.locale == :fr ? "de jardin par gîte" : "garden per cottage"]
+    ].each_with_index do |(n, l), i| %>
+      <div class="text-center py-2 <%= 'border-r border-line' if i < 3 %>">
+        <div class="display text-3xl sm:text-4xl text-ink leading-none"><%= n %></div>
+        <div class="text-xs text-muted mt-1.5"><%= l %></div>
+      </div>
+    <% end %>
   </div>
 </section>

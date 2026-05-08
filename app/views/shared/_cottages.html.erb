@@ -1,17 +1,24 @@
-<%# locals: (home_page:, cottages:) %>
-<section id="gites" class="py-20 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <header class="max-w-3xl mx-auto text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl font-light uppercase tracking-wide mb-6"><%= home_page.cottages_title %></h2>
-      <div class="prose mx-auto text-gray-700">
-        <%= markdown(home_page.cottages_description) %>
-      </div>
-    </header>
-
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <% cottages.each do |cottage| %>
-        <%= render "shared/cottage_card", cottage: cottage %>
-      <% end %>
+<%# locals: (home_page:, cottages:, pricing_periods:) %>
+<section id="gites" class="px-8 pt-16 pb-24 max-w-7xl mx-auto">
+  <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-12">
+    <div>
+      <span class="badge mb-4"><%= I18n.locale == :fr ? "Nos gîtes" : "Our cottages" %></span>
+      <h2 class="display text-4xl sm:text-5xl lg:text-6xl leading-none m-0 -tracking-[0.02em]">
+        <%= I18n.locale == :fr ? "Trois maisons," : "Three houses," %>
+        <span class="instrument text-terra"><%= I18n.locale == :fr ? "un même jardin" : "one shared garden" %></span>
+      </h2>
     </div>
+    <p class="text-sm leading-relaxed text-slate max-w-sm m-0">
+      <%= markdown(home_page.cottages_description) %>
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <% cottages.each_with_index do |cottage, idx| %>
+      <% min_price = pricing_periods.flat_map(&:pricing_rates).select { |r| r.cottage_id == cottage.id }.map(&:price).min %>
+      <div data-controller="reveal" data-reveal data-reveal-delay="<%= idx + 1 %>">
+        <%= render "shared/cottage_card", cottage: cottage, min_price: min_price&.to_i %>
+      </div>
+    <% end %>
   </div>
 </section>

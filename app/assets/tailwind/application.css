@@ -1,19 +1,43 @@
 @import "tailwindcss";
 
 @theme {
+  /* V2 "Tréompan" palette — sand, slate, terracotta */
+  --color-ink: #26262a;
+  --color-slate: #3a4250;
+  --color-terra: #b85a36;
+  --color-terra-deep: #933e1f;
+  --color-terra-soft: #f0c4a8;
+  --color-sand: #efe6d4;
+  --color-bone: #faf6ee;
+  --color-paper: #f5ede0;
+  --color-line: #dbcfb6;
+  --color-muted: #7a7268;
+  --color-sea: #3b6478;
+  --color-green-iroise: #5e7a4a;
+
+  /* Per-cottage accents (kept for backwards compat in admin / titles) */
   --color-arums: #7b9b38;
   --color-camellias: #a42c2d;
   --color-hortensias: #3d4961;
-  --color-beige: #f9f9eb;
 
-  --font-sans: "Raleway", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Raleway", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "DM Serif Display", "Fraunces", Georgia, serif;
+  --font-instrument: "Instrument Serif", Georgia, serif;
 }
 
-/* Cottage-specific accents — referenced dynamically as
-   .title-{reference} / .btn-{reference} from ERB templates,
-   so they live as plain CSS rather than Tailwind utilities. */
+/* Default body styling — V2 cosy bone background */
+html, body {
+  background: var(--color-bone);
+  color: var(--color-ink);
+  font-feature-settings: "ss01", "ss02";
+}
 
+/* === Display & decorative type =========================================== */
+.display { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.015em; }
+.instrument { font-family: var(--font-instrument); font-style: italic; }
+.num { font-family: var(--font-display); font-variant-numeric: lining-nums; }
+
+/* === Cottage-specific accents =========================================== */
 .title-arums      { color: var(--color-arums); }
 .title-camellias  { color: var(--color-camellias); }
 .title-hortensias { color: var(--color-hortensias); }
@@ -26,13 +50,108 @@
 .btn-camellias:hover  { background-color: var(--color-camellias);  color: white; }
 .btn-hortensias:hover { background-color: var(--color-hortensias); color: white; }
 
-/* Make the Leaflet map play nicely with our utility classes. */
-.leaflet-container {
-  height: 100%;
-  width: 100%;
-  border-radius: 0.25rem;
+/* === Buttons V2 ========================================================== */
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px;
+       font-size: 14px; cursor: pointer; transition: all .25s; border: none; font-family: inherit; font-weight: 500; }
+.btn-primary { background: var(--color-terra); color: #fff; }
+.btn-primary:hover { background: var(--color-terra-deep); transform: translateY(-1px);
+                     box-shadow: 0 6px 18px rgba(184,90,54,0.25); }
+.btn-ghost { background: transparent; color: var(--color-ink); border: 1.5px solid var(--color-ink); }
+.btn-ghost:hover { background: var(--color-ink); color: var(--color-bone); }
+.btn-soft { background: var(--color-paper); color: var(--color-ink); border: 1px solid var(--color-line); }
+.btn-soft:hover { background: var(--color-sand); }
+
+/* === Pills / chips / badges ============================================= */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 11px; background: var(--color-paper); border: 1px solid var(--color-line);
+  border-radius: 999px; font-size: 12px; color: var(--color-slate);
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; background: var(--color-paper); border: 1px solid var(--color-line);
+  border-radius: 999px; font-size: 12px; color: var(--color-slate);
 }
 
-/* Mailer prose-friendly typography fallback */
+/* === Form fields V2 ====================================================== */
+.fld {
+  width: 100%; padding: 14px 16px; border: 1px solid var(--color-line); background: var(--color-bone);
+  border-radius: 12px; font-family: inherit; font-size: 14px; color: var(--color-ink);
+  transition: border-color .2s, background .2s;
+}
+.fld:focus { outline: none; border-color: var(--color-terra); background: #fff; }
+.lbl { font-size: 12px; color: var(--color-muted); margin-bottom: 6px; display: block; font-weight: 500; }
+
+/* === Cards =============================================================== */
+.gite-card {
+  cursor: pointer; transition: transform .35s cubic-bezier(.2,.7,.2,1);
+  background: var(--color-bone); border-radius: 18px; overflow: hidden;
+  border: 1px solid var(--color-line); display: flex; flex-direction: column;
+}
+.gite-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(58,66,80,0.10); }
+.gite-card .img-wrap { aspect-ratio: 4/3; overflow: hidden; }
+.gite-card .img-wrap img { transition: transform .8s cubic-bezier(.2,.7,.2,1); width: 100%; height: 100%; object-fit: cover; }
+.gite-card:hover .img-wrap img { transform: scale(1.06); }
+
+.feature-tile {
+  padding: 14px 18px; display: flex; align-items: center; gap: 12px;
+  background: var(--color-paper); border-radius: 12px; font-size: 14px;
+}
+
+.price-card {
+  background: var(--color-bone); border: 1px solid var(--color-line);
+  border-radius: 18px; padding: 28px 30px;
+}
+.price-card.featured {
+  background: var(--color-ink); color: var(--color-bone); border-color: var(--color-ink);
+}
+.price-card.featured .lbl { color: rgba(250,246,238,0.5); }
+.ticket-divider {
+  height: 1px;
+  background: repeating-linear-gradient(to right, var(--color-line) 0 6px, transparent 6px 12px);
+}
+
+/* === Gallery thumbs ====================================================== */
+.gallery-thumb { cursor: pointer; overflow: hidden; border-radius: 14px; transition: transform .25s; }
+.gallery-thumb:hover { transform: scale(1.005); }
+.gallery-thumb img { transition: transform .8s cubic-bezier(.2,.7,.2,1); width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery-thumb:hover img { transform: scale(1.05); }
+
+/* === Nav links =========================================================== */
+.nav-link {
+  color: var(--color-ink); text-decoration: none; font-size: 14px;
+  padding: 6px 4px; cursor: pointer; transition: color .2s; position: relative;
+}
+.nav-link:hover, .nav-link.active { color: var(--color-terra); }
+.nav-link.active::after {
+  content: ""; position: absolute; left: 4px; right: 4px; bottom: -4px;
+  height: 2px; background: var(--color-terra); border-radius: 2px;
+}
+
+/* === Marquee ============================================================ */
+.marquee { display: flex; gap: 32px; animation: marquee 40s linear infinite; white-space: nowrap; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+.bob { animation: bob 4s ease-in-out infinite; }
+
+/* === Scroll reveal ====================================================== */
+[data-reveal] { opacity: 0; transform: translateY(18px);
+                transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
+[data-reveal][data-revealed] { opacity: 1; transform: none; }
+[data-reveal-delay="1"] { transition-delay: .1s; }
+[data-reveal-delay="2"] { transition-delay: .2s; }
+[data-reveal-delay="3"] { transition-delay: .3s; }
+[data-reveal-delay="4"] { transition-delay: .4s; }
+
+/* === Leaflet ============================================================ */
+.leaflet-container { height: 100%; width: 100%; border-radius: 0.25rem; }
+
+/* === Prose ============================================================== */
 .prose ul, .prose ol { list-style: revert; padding-left: 1.5rem; }
-.prose a { color: var(--color-camellias); text-decoration: underline; }
+.prose a { color: var(--color-terra); text-decoration: underline; }
+.prose strong { font-weight: 600; }
+
+/* === Custom scrollbar =================================================== */
+.scrollarea::-webkit-scrollbar { width: 6px; }
+.scrollarea::-webkit-scrollbar-thumb { background: rgba(58,66,80,0.2); border-radius: 3px; }
