@@ -1,0 +1,19 @@
+<%# locals: (home_page:) %>
+<section id="intro" class="pt-16">
+  <% if home_page.top_banner.attached? %>
+    <div class="w-full h-[60vh] sm:h-[80vh] bg-cover bg-center"
+         style="background-image: url('<%= url_for(home_page.top_banner) %>')">
+    </div>
+  <% end %>
+
+  <div class="max-w-3xl mx-auto px-4 py-16 sm:py-24 text-center">
+    <hr class="w-16 mx-auto border-gray-400 mb-8">
+    <blockquote class="text-xl sm:text-2xl font-light italic leading-relaxed prose prose-lg mx-auto">
+      <%= markdown(home_page.intro) %>
+    </blockquote>
+    <div class="mt-6 text-base text-gray-600 prose mx-auto">
+      <%= markdown(home_page.signature) %>
+    </div>
+    <hr class="w-16 mx-auto border-gray-400 mt-8">
+  </div>
+</section>

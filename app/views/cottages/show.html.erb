@@ -1,0 +1,94 @@
+<% content_for :title, "#{@cottage.name} — Kervao" %>
+
+<%= render "shared/navbar", cottage: @cottage %>
+
+<main class="pt-16">
+  <header class="py-16 bg-gray-50 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-sm uppercase tracking-widest text-gray-500 mb-2"><%= t("nav.cottages") %></p>
+      <h1 class="text-4xl sm:text-5xl font-light uppercase tracking-wide title-<%= @cottage.reference %>"><%= @cottage.name %></h1>
+      <% if @cottage.short_description.present? %>
+        <p class="mt-6 text-lg text-gray-700"><%= @cottage.short_description %></p>
+      <% end %>
+    </div>
+  </header>
+
+  <section class="py-12 bg-white">
+    <ul class="max-w-5xl mx-auto px-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
+      <li>
+        <div class="text-3xl mb-2" aria-hidden>🏠</div>
+        <div class="text-xs uppercase tracking-wider text-gray-500"><%= t("cottages.surface") %></div>
+        <div class="font-medium"><%= @cottage.surface %></div>
+      </li>
+      <li>
+        <div class="text-3xl mb-2" aria-hidden>🛏️</div>
+        <div class="text-xs uppercase tracking-wider text-gray-500"><%= t("cottages.bedrooms") %></div>
+        <div class="font-medium"><%= @cottage.room_count %></div>
+      </li>
+      <li>
+        <div class="text-3xl mb-2" aria-hidden>👥</div>
+        <div class="text-xs uppercase tracking-wider text-gray-500"><%= t("cottages.beds") %></div>
+        <div class="font-medium"><%= @cottage.beddings %></div>
+      </li>
+      <li>
+        <div class="text-3xl mb-2" aria-hidden>🚿</div>
+        <div class="text-xs uppercase tracking-wider text-gray-500"><%= t("cottages.shower_room") %></div>
+        <div class="font-medium"><%= @cottage.washroom_count %></div>
+      </li>
+      <li>
+        <div class="text-3xl mb-2" aria-hidden>🚗</div>
+        <div class="text-xs uppercase tracking-wider text-gray-500"><%= t("cottages.parking") %></div>
+        <div class="font-medium"><%= @cottage.parking_lot_count %></div>
+      </li>
+      <% if @cottage.disabled_access %>
+        <li>
+          <div class="text-3xl mb-2" aria-hidden>♿</div>
+          <div class="text-xs uppercase tracking-wider text-gray-500"><%= t("cottages.wheelchair") %></div>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <% if @cottage.photos.attached? %>
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <div data-controller="carousel" class="relative">
+          <div data-carousel-target="track" class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scroll-smooth">
+            <% @cottage.photos.each do |photo| %>
+              <div class="flex-none w-full sm:w-2/3 lg:w-1/2 snap-center">
+                <%= image_tag photo, class: "w-full h-96 object-cover rounded shadow", alt: @cottage.name %>
+              </div>
+            <% end %>
+          </div>
+          <button type="button" data-action="carousel#prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 rounded-full w-10 h-10 shadow hover:bg-white" aria-label="Précédent">‹</button>
+          <button type="button" data-action="carousel#next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 rounded-full w-10 h-10 shadow hover:bg-white" aria-label="Suivant">›</button>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 prose prose-lg">
+      <%= markdown(@cottage.full_description) %>
+    </div>
+  </section>
+
+  <% if @cottage_details.any? %>
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10">
+        <% @cottage_details.each do |detail| %>
+          <article class="bg-white p-8 shadow rounded">
+            <h3 class="text-xl font-light uppercase tracking-wide mb-4 title-<%= @cottage.reference %>"><%= detail.title %></h3>
+            <div class="prose"><%= markdown(detail.description) %></div>
+          </article>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+
+  <div class="py-12 text-center bg-white">
+    <%= link_to t("cottages.back_to_list"),
+        home_path(anchor: "gites"),
+        class: "inline-block px-6 py-3 border border-gray-400 uppercase tracking-wider text-sm hover:bg-gray-100" %>
+  </div>
+</main>

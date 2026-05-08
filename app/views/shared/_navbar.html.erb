@@ -1,0 +1,31 @@
+<%# locals: (cottage: nil) %>
+<nav class="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <%= link_to home_path, class: "text-lg sm:text-xl font-light tracking-wide uppercase text-gray-900" do %>
+      <%= cottage ? cottage.name : t("nav.cottages") %>
+      <% unless cottage %>
+        <span class="hidden sm:inline">— Kervao</span>
+      <% end %>
+    <% end %>
+
+    <div class="flex items-center gap-4 sm:gap-6 text-sm uppercase tracking-wider">
+      <% if cottage %>
+        <%= link_to t("cottages.back_to_list"), home_path(anchor: "gites"), class: "hover:text-gray-600" %>
+      <% else %>
+        <a href="#gites" class="hidden md:inline hover:text-gray-600"><%= t("nav.cottages") %></a>
+        <a href="#findus" class="hidden md:inline hover:text-gray-600"><%= t("nav.find_us") %></a>
+        <a href="#prices" class="hidden md:inline hover:text-gray-600"><%= t("nav.prices") %></a>
+        <a href="#contact" class="hidden md:inline hover:text-gray-600"><%= t("nav.contact") %></a>
+      <% end %>
+
+      <div class="flex items-center gap-1 ml-2 border-l border-gray-300 pl-4">
+        <%= link_to "FR",
+            url_for(locale: :fr),
+            class: "px-2 py-1 text-xs #{I18n.locale == :fr ? 'font-bold underline' : 'text-gray-500 hover:text-gray-900'}" %>
+        <%= link_to "EN",
+            url_for(locale: :en),
+            class: "px-2 py-1 text-xs #{I18n.locale == :en ? 'font-bold underline' : 'text-gray-500 hover:text-gray-900'}" %>
+      </div>
+    </div>
+  </div>
+</nav>

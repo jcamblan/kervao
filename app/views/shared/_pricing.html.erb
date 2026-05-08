@@ -1,0 +1,48 @@
+<%# locals: (pricing:, pricing_periods:, cottages:) %>
+<section id="prices" class="py-20 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-light uppercase tracking-wide mb-3"><%= pricing.title %></h2>
+      <% if pricing.subtitle.present? %>
+        <p class="text-gray-600 max-w-2xl mx-auto"><%= pricing.subtitle %></p>
+      <% end %>
+    </header>
+
+    <% if pricing_periods.any? && cottages.any? %>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse bg-white shadow">
+          <thead>
+            <tr class="border-b-2 border-gray-300">
+              <th class="text-left p-4 font-light uppercase text-sm tracking-wider"></th>
+              <% cottages.each do |cottage| %>
+                <th class="text-center p-4 font-light uppercase text-sm tracking-wider title-<%= cottage.reference %>">
+                  <%= cottage.name %>
+                </th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <% pricing_periods.each do |period| %>
+              <tr class="border-b border-gray-200">
+                <td class="p-4">
+                  <div class="font-medium uppercase text-sm tracking-wide"><%= period.title %></div>
+                  <div class="text-xs text-gray-500"><%= period.subtitle %></div>
+                </td>
+                <% cottages.each do |cottage| %>
+                  <% rate = period.pricing_rates.find { |r| r.cottage_id == cottage.id } %>
+                  <td class="p-4 text-center text-lg font-light">
+                    <% if rate %>
+                      <%= number_to_currency(rate.price, unit: "€", separator: ",", delimiter: " ", precision: 0) %>
+                    <% else %>
+                      —
+                    <% end %>
+                  </td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+<%# locals: (cottage:) %>
+<article class="flex flex-col bg-white shadow-md hover:shadow-xl transition-shadow rounded overflow-hidden">
+  <% if cottage.main_picture.attached? %>
+    <%= link_to cottage_path(reference: cottage.reference) do %>
+      <%= image_tag cottage.main_picture, class: "w-full h-56 object-cover", alt: cottage.name %>
+    <% end %>
+  <% end %>
+
+  <div class="p-6 flex-1 flex flex-col">
+    <h3 class="text-2xl font-light uppercase tracking-wide title-<%= cottage.reference %>"><%= cottage.name %></h3>
+    <hr class="w-12 my-4 border-gray-400">
+
+    <ul class="grid grid-cols-2 gap-3 text-sm text-gray-600 mb-6">
+      <li class="flex items-center gap-2"><span aria-hidden>🏠</span><%= cottage.surface %></li>
+      <li class="flex items-center gap-2"><span aria-hidden>🛏️</span><%= t("cottages.bedrooms") %>: <%= cottage.room_count %></li>
+      <li class="flex items-center gap-2"><span aria-hidden>👥</span><%= t("cottages.beds") %>: <%= cottage.beddings %></li>
+      <% if cottage.disabled_access %>
+        <li class="flex items-center gap-2"><span aria-hidden>♿</span><%= t("cottages.wheelchair") %></li>
+      <% end %>
+    </ul>
+
+    <%= link_to t("cottages.see_more"),
+        cottage_path(reference: cottage.reference),
+        class: "mt-auto inline-block text-center px-4 py-2 border btn-#{cottage.reference} hover:bg-gray-100 uppercase text-sm tracking-wider" %>
+  </div>
+</article>

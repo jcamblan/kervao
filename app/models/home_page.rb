@@ -7,7 +7,7 @@ class HomePage < ApplicationRecord
              :where_is_kervao_title, :where_is_kervao_description,
              :where_is_ploudal_title, :where_is_ploudal_description,
              :how_come_title, :how_come_subtitle,
-             :by_car, :by_plane, :by_rail,
+             :by_car, :by_plane, :by_rail
 
   has_one_attached :top_banner
   has_one_attached :banner2

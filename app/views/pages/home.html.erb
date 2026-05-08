@@ -1,0 +1,17 @@
+<%= render "shared/navbar" %>
+
+<main>
+  <%= render "shared/intro", home_page: @home_page %>
+
+  <%= render "shared/cottages", home_page: @home_page, cottages: @cottages %>
+
+  <%= render "shared/parallax", image: @home_page.banner2 %>
+
+  <%= render "shared/findus", home_page: @home_page %>
+
+  <%= render "shared/parallax", image: @home_page.banner3 %>
+
+  <%= render "shared/pricing", pricing: @pricing, pricing_periods: @pricing_periods, cottages: @cottages %>
+
+  <%= render "shared/contact", contact_info: @contact_info %>
+</main>

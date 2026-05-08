@@ -1,0 +1,17 @@
+<%# locals: (home_page:, cottages:) %>
+<section id="gites" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="max-w-3xl mx-auto text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-light uppercase tracking-wide mb-6"><%= home_page.cottages_title %></h2>
+      <div class="prose mx-auto text-gray-700">
+        <%= markdown(home_page.cottages_description) %>
+      </div>
+    </header>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <% cottages.each do |cottage| %>
+        <%= render "shared/cottage_card", cottage: cottage %>
+      <% end %>
+    </div>
+  </div>
+</section>

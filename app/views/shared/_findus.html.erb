@@ -1,0 +1,48 @@
+<%# locals: (home_page:) %>
+<section id="findus" class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl sm:text-4xl font-light uppercase tracking-wide text-center mb-12"><%= home_page.find_us_title %></h2>
+
+    <div class="grid lg:grid-cols-2 gap-12">
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-xl font-light uppercase mb-3"><%= home_page.where_is_kervao_title %></h3>
+          <div class="prose text-gray-700"><%= markdown(home_page.where_is_kervao_description) %></div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-light uppercase mb-3"><%= home_page.where_is_ploudal_title %></h3>
+          <div class="prose text-gray-700"><%= markdown(home_page.where_is_ploudal_description) %></div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-light uppercase mb-1"><%= home_page.how_come_title %></h3>
+          <p class="text-sm text-gray-500 mb-4"><%= home_page.how_come_subtitle %></p>
+
+          <div class="space-y-4">
+            <div class="flex gap-4">
+              <span class="text-2xl" aria-hidden>🚗</span>
+              <div class="prose prose-sm flex-1"><%= markdown(home_page.by_car) %></div>
+            </div>
+            <div class="flex gap-4">
+              <span class="text-2xl" aria-hidden>✈️</span>
+              <div class="prose prose-sm flex-1"><%= markdown(home_page.by_plane) %></div>
+            </div>
+            <div class="flex gap-4">
+              <span class="text-2xl" aria-hidden>🚆</span>
+              <div class="prose prose-sm flex-1"><%= markdown(home_page.by_rail) %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-controller="map"
+           data-map-latitude-value="48.5754"
+           data-map-longitude-value="-4.6493"
+           data-map-zoom-value="10"
+           data-map-label-value="Kervao"
+           class="w-full h-[500px] lg:h-full min-h-[400px] bg-gray-200 rounded shadow">
+      </div>
+    </div>
+  </div>
+</section>
