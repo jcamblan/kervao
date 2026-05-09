@@ -19,7 +19,7 @@ env:
     RAILS_LOG_TO_STDOUT: "true"
     RAILS_SERVE_STATIC_FILES: "true"
     SOLID_QUEUE_IN_PUMA: "true"
-    RAILS_MAX_THREADS: "3"
+    RAILS_MAX_THREADS: "5"
     WEB_CONCURRENCY: "1"
     DB_HOST: kervao-db
   secret:
