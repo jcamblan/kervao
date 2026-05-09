@@ -16,6 +16,8 @@ home = HomePage.instance
 
 home.update!(
   intro_fr: <<~MD,
+    Bienvenue chez nous, à Tréompan.
+
     Merci aux estivants et vacanciers français, allemands, anglais qui nous ont
     accordé leur confiance et sympathie les années passées et bienvenue à vous
     qui programmez votre prochain séjour.
@@ -42,6 +44,8 @@ home.update!(
     choisissez les gîtes de Kervao !
   MD
   intro_en: <<~MD,
+    Welcome to our home in Tréompan.
+
     Thank you to the French, German and English visitors who have shared their
     trust and friendship over the years, and welcome to you who are planning
     your next stay.

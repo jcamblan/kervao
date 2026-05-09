@@ -18,11 +18,11 @@
       <span class="badge mb-6"><%= I18n.locale == :fr ? "Mot d'accueil" : "A word of welcome" %></span>
       <h2 class="display text-4xl sm:text-5xl lg:text-[56px] leading-[1.05] m-0 mb-6">
         <% if home_page.intro.present? %>
-          <%= markdown(home_page.intro.lines.first) %>
+          <%= home_page.intro.lines.first.strip %>
         <% end %>
       </h2>
       <div class="prose text-slate text-base leading-relaxed">
-        <%= markdown(home_page.intro) %>
+        <%= markdown(home_page.intro.lines.drop(1).join) %>
       </div>
       <div class="flex items-center gap-4 mt-8 pt-5 border-t border-line">
         <div class="w-12 h-12 rounded-full bg-paper text-terra flex items-center justify-center display text-2xl">C</div>
