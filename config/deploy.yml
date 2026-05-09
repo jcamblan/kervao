@@ -26,9 +26,8 @@ env:
   secret:
     - RAILS_MASTER_KEY
     - KERVAO_DATABASE_PASSWORD
-
-volumes:
-  - "/var/lib/kervao/storage:/rails/storage"
+    - SCALEWAY_ACCESS_KEY_ID
+    - SCALEWAY_SECRET_ACCESS_KEY
 
 proxy:
   ssl: false       # Démo sur IP — SSL activé plus tard avec le domaine
