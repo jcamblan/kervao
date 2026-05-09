@@ -1,0 +1,6 @@
+<%# locals: (image:) %>
+<% if image.attached? %>
+  <div class="hidden md:block w-full h-[40vh] bg-cover bg-fixed bg-center"
+       style="background-image: url('<%= url_for(image) %>')">
+  </div>
+<% end %>

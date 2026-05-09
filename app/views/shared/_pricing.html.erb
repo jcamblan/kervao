@@ -1,0 +1,46 @@
+<%# locals: (pricing:, pricing_periods:, cottages:) %>
+<section id="prices" class="px-8 py-24 max-w-7xl mx-auto" data-controller="pricing-tabs" data-pricing-tabs-active-value="<%= cottages.first&.reference %>">
+  <span class="badge mb-5"><%= I18n.locale == :fr ? "Tarifs 2026" : "2026 rates" %></span>
+  <h1 data-controller="reveal" data-reveal class="display text-5xl sm:text-6xl lg:text-[88px] leading-[0.95] m-0 mb-5 -tracking-[0.025em]">
+    <%= pricing.title %> <span class="instrument text-terra"><%= I18n.locale == :fr ? "en clair" : "in clear" %></span>
+  </h1>
+  <p data-controller="reveal" data-reveal data-reveal-delay="1" class="text-base leading-relaxed text-slate m-0 max-w-2xl">
+    <%= pricing.subtitle %>
+  </p>
+
+  <div data-controller="reveal" data-reveal class="inline-flex p-1 bg-paper border border-line rounded-full gap-1 mt-10">
+    <% cottages.each do |cottage| %>
+      <button type="button"
+              data-action="pricing-tabs#switch"
+              data-pricing-tabs-target="tab"
+              data-reference="<%= cottage.reference %>"
+              class="px-5 py-2.5 rounded-full border-0 cursor-pointer text-sm font-medium transition tab-button">
+        <%= cottage.name %>
+      </button>
+    <% end %>
+  </div>
+
+  <% pricing_periods.each_with_index do |_, _| %><% end %>
+  <% cottages.each_with_index do |cottage, cottage_idx| %>
+    <div data-pricing-tabs-target="panel" data-reference="<%= cottage.reference %>" class="<%= 'hidden' if cottage_idx > 0 %>">
+      <div data-controller="reveal" data-reveal class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+        <% pricing_periods.each_with_index do |period, idx| %>
+          <% rate = period.pricing_rates.find { |r| r.cottage_id == cottage.id } %>
+          <div class="price-card <%= 'featured' if idx == 0 %>">
+            <div class="lbl mb-1.5"><%= period.subtitle %></div>
+            <h3 class="display text-[22px] m-0 mb-5 leading-tight <%= 'text-bone' if idx == 0 %>"><%= period.title %></h3>
+            <div class="ticket-divider"></div>
+            <div class="flex items-baseline gap-2 mt-5">
+              <span class="num text-5xl leading-none <%= idx == 0 ? 'text-bone' : 'text-terra' %>">
+                <%= rate ? rate.price.to_i : "—" %>
+              </span>
+              <span class="text-lg <%= idx == 0 ? 'opacity-70 text-bone' : 'text-slate' %>">
+                € / <%= I18n.locale == :fr ? "sem." : "wk" %>
+              </span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</section>

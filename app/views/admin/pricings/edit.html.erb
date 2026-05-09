@@ -1,0 +1,46 @@
+<h1 class="text-2xl font-light mb-8"><%= t("admin.nav.pricing") %></h1>
+
+<%= form_with model: @pricing, url: admin_pricing_path, method: :patch, class: "max-w-5xl space-y-8" do |f| %>
+  <section class="bg-white p-6 rounded shadow space-y-4">
+    <%= render "admin/shared/translatable_field", form: f, attribute: :title, label: "Titre de section" %>
+    <%= render "admin/shared/translatable_field", form: f, attribute: :subtitle, label: "Sous-titre" %>
+  </section>
+
+  <section class="bg-white p-6 rounded shadow space-y-4">
+    <h2 class="text-lg font-medium">Périodes tarifaires</h2>
+
+    <div class="space-y-6" data-controller="nested-form" data-nested-form-target="container">
+      <%= f.fields_for :pricing_periods do |pf| %>
+        <div class="border border-gray-200 rounded p-4 relative">
+          <%= pf.hidden_field :position %>
+          <%= pf.hidden_field :_destroy, data: { destroy_target: true } %>
+          <button type="button"
+                  data-action="nested-form#remove"
+                  class="absolute top-2 right-2 text-red-500 hover:text-red-700 text-xl leading-none">×</button>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <%= render "admin/shared/translatable_field", form: pf, attribute: :title, label: "Titre période" %>
+            <%= render "admin/shared/translatable_field", form: pf, attribute: :subtitle, label: "Sous-titre période" %>
+          </div>
+
+          <h3 class="text-sm uppercase tracking-wider text-gray-700 mt-4 mb-2">Tarifs par gîte</h3>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <%= pf.fields_for :pricing_rates do |rf| %>
+              <div>
+                <% cottage = @cottages.find { |c| c.id == rf.object.cottage_id } %>
+                <%= rf.hidden_field :cottage_id %>
+                <label class="block text-xs uppercase tracking-wider text-gray-500 mb-1"><%= cottage&.name_fr || "Gîte ##{rf.object.cottage_id}" %></label>
+                <%= rf.number_field :price, step: 1,
+                    class: "w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <p class="text-xs text-gray-500 mt-4">L'ajout dynamique de périodes via Turbo Frames sera ajouté à l'étape Stimulus.</p>
+  </section>
+
+  <%= f.submit t("admin.actions.save"), class: "px-6 py-2 bg-gray-900 text-white uppercase tracking-wider text-sm rounded hover:bg-gray-700 cursor-pointer" %>
+<% end %>

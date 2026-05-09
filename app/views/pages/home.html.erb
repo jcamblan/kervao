@@ -1,0 +1,19 @@
+<%= render "shared/navbar" %>
+
+<main>
+  <%= render "shared/intro", home_page: @home_page, cottages: @cottages %>
+
+  <%= render "shared/welcome", home_page: @home_page %>
+
+  <%= render "shared/cottages", home_page: @home_page, cottages: @cottages, pricing_periods: @pricing_periods %>
+
+  <%= render "shared/marquee", home_page: @home_page %>
+
+  <%= render "shared/findus", home_page: @home_page %>
+
+  <%= render "shared/pricing", pricing: @pricing, pricing_periods: @pricing_periods, cottages: @cottages %>
+
+  <%= render "shared/contact", contact_info: @contact_info %>
+
+  <%= render "shared/footer", contact_info: @contact_info %>
+</main>

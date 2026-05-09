@@ -1,0 +1,66 @@
+<%# locals: (contact_info:) %>
+<section id="contact" class="px-8 py-24 max-w-7xl mx-auto">
+  <span class="badge mb-5"><%= contact_info.title %></span>
+  <h1 data-controller="reveal" data-reveal class="display text-5xl sm:text-6xl lg:text-[88px] leading-[0.95] m-0 mb-5 -tracking-[0.025em]">
+    <%= I18n.locale == :fr ? "On" : "Let's" %>
+    <span class="instrument text-terra"><%= I18n.locale == :fr ? "se parle ?" : "talk." %></span>
+  </h1>
+  <p data-controller="reveal" data-reveal data-reveal-delay="1" class="text-base leading-relaxed text-slate max-w-xl m-0">
+    <%= I18n.locale == :fr ? "Réservation, renseignement, idées de séjour — nous vous répondons personnellement, généralement sous 24 heures." : "Booking, information, holiday ideas — we get back to you personally, usually within 24 hours." %>
+  </p>
+
+  <div class="grid lg:grid-cols-[1.3fr_1fr] gap-6 mt-10">
+    <%= form_with url: contact_path, method: :post, local: true,
+                  data: { controller: "reveal" }, html: { "data-reveal" => "" },
+                  class: "bg-paper border border-line p-9 rounded-[24px]" do |f| %>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <%= f.label :subject, t("contact.form.subject"), class: "lbl" %>
+          <%= f.select :subject,
+              [[t("contact.form.booking"), "booking"], [t("contact.form.information"), "information"]],
+              {}, class: "fld" %>
+        </div>
+        <div>
+          <%= f.label :name, t("contact.form.name"), class: "lbl" %>
+          <%= f.text_field :name, required: true, class: "fld" %>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <%= f.label :email, t("contact.form.email"), class: "lbl" %>
+        <%= f.email_field :email, required: true, class: "fld" %>
+      </div>
+
+      <div class="mb-5">
+        <%= f.label :message, t("contact.form.message"), class: "lbl" %>
+        <%= f.text_area :message, rows: 5, required: true, class: "fld",
+            placeholder: I18n.locale == :fr ? "Combien de personnes ? Avec ou sans enfants ? Une préférence de gîte ?" : "How many guests? Any preferred cottage?" %>
+      </div>
+
+      <%= f.submit t("contact.form.submit"), class: "btn btn-primary cursor-pointer" %>
+    <% end %>
+
+    <aside data-controller="reveal" data-reveal data-reveal-delay="1" class="flex flex-col gap-4">
+      <div class="bg-ink text-bone rounded-[24px] px-7 py-8">
+        <div class="flex items-center gap-4 mb-5">
+          <div class="w-14 h-14 rounded-full bg-terra text-white flex items-center justify-center display text-2xl">C</div>
+          <div>
+            <div class="display text-[22px]">Cathy Madec</div>
+            <div class="text-xs opacity-70"><%= I18n.locale == :fr ? "Propriétaire" : "Owner" %></div>
+          </div>
+        </div>
+        <p class="instrument text-lg leading-relaxed opacity-90 m-0">
+          « <%= I18n.locale == :fr ? "Pour des vacances ou séjours sans aucun nuage sur votre bonne humeur, choisissez les Gîtes de Kervao." : "For holidays without a single cloud on your good mood, choose the Gîtes de Kervao." %> »
+        </p>
+      </div>
+
+      <% if contact_info.phone_number.present? %>
+        <%= render "shared/contact_row", icon: :phone, label: (I18n.locale == :fr ? "Téléphone" : "Phone"), value: contact_info.phone_number, href: "tel:#{contact_info.phone_number.gsub(/\s+/, '')}" %>
+      <% end %>
+      <% if contact_info.email.present? %>
+        <%= render "shared/contact_row", icon: :mail, label: "Email", value: contact_info.email, href: "mailto:#{contact_info.email}" %>
+      <% end %>
+      <%= render "shared/contact_row", icon: :pin, label: (I18n.locale == :fr ? "Adresse" : "Address"), value: nil, address: contact_info.address %>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,158 @@
+<% content_for :title, "#{@cottage.name} — Kervao" %>
+
+<%= render "shared/navbar", cottage: @cottage %>
+
+<main>
+  <% cottage_index = Cottage.ordered.pluck(:id).index(@cottage.id) %>
+
+  <section class="px-8 pt-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-2 text-xs text-muted mb-6">
+        <%= link_to (I18n.locale == :fr ? "Accueil" : "Home"), home_path, class: "text-muted no-underline hover:text-terra" %>
+        <span>›</span>
+        <span><%= I18n.locale == :fr ? "Nos gîtes" : "Our cottages" %></span>
+        <span>›</span>
+        <span class="text-ink"><%= @cottage.name %></span>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+        <div data-controller="reveal" data-reveal class="flex flex-col justify-between py-5">
+          <div>
+            <span class="badge mb-5">Gîte 0<%= (cottage_index || 0) + 1 %> / 0<%= Cottage.count %></span>
+            <h1 class="display text-5xl sm:text-6xl lg:text-[96px] leading-[0.95] m-0 mb-3.5 -tracking-[0.025em]">
+              <%= @cottage.name %>
+            </h1>
+            <% if @cottage.short_description.present? %>
+              <p class="instrument text-2xl text-terra m-0"><%= @cottage.short_description %></p>
+            <% end %>
+          </div>
+          <div class="mt-8">
+            <% if @cottage.full_description.present? %>
+              <div class="prose text-slate text-base leading-relaxed mb-8 max-w-xl">
+                <%= markdown(@cottage.full_description) %>
+              </div>
+            <% end %>
+            <div class="flex flex-wrap gap-2 mb-8">
+              <span class="chip">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18"/></svg>
+                <%= @cottage.surface %>
+              </span>
+              <span class="chip">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-7a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v7M3 14h18M3 18v3M21 18v3"/><circle cx="7.5" cy="11.5" r="1.5"/></svg>
+                <%= @cottage.room_count %> <%= t("cottages.bedrooms").downcase %>
+              </span>
+              <span class="chip">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M21 19a4 4 0 0 0-4-4"/></svg>
+                <%= @cottage.beddings %> <%= t("cottages.beds").downcase %>
+              </span>
+              <% if @cottage.disabled_access %>
+                <span class="chip bg-green-iroise text-white border-0">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="4" r="1.5"/><path d="M10 7v6h5l3 6M7 11a5 5 0 1 0 7 6"/></svg>
+                  PMR
+                </span>
+              <% end %>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <%= link_to home_path(anchor: "contact"), class: "btn btn-primary no-underline" do %>
+                <%= I18n.locale == :fr ? "Demander des dates" : "Ask for dates" %>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              <% end %>
+              <%= link_to (I18n.locale == :fr ? "Voir les tarifs" : "See rates"), home_path(anchor: "prices"), class: "btn btn-ghost no-underline" %>
+            </div>
+          </div>
+        </div>
+
+        <div data-controller="reveal" data-reveal data-reveal-delay="1" class="rounded-[28px] overflow-hidden aspect-[4/5] bg-paper">
+          <% if @cottage.main_picture.attached? %>
+            <%= image_tag @cottage.main_picture, alt: @cottage.name, class: "w-full h-full object-cover" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <% if @cottage.photos.attached? && @cottage.photos.any? %>
+    <section class="px-8 pt-24 pb-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-baseline mb-7">
+          <h2 class="display text-3xl sm:text-4xl m-0">
+            <%= I18n.locale == :fr ? "Galerie" : "Gallery" %> <span class="instrument text-terra"><%= I18n.locale == :fr ? "photos" : "photos" %></span>
+          </h2>
+          <span class="badge"><%= @cottage.photos.count %> photos</span>
+        </div>
+        <div data-controller="reveal carousel" data-reveal class="relative">
+          <div data-carousel-target="track" class="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-4 scrollarea">
+            <% @cottage.photos.each do |photo| %>
+              <div class="flex-none w-full sm:w-2/3 lg:w-1/2 snap-center">
+                <%= image_tag photo, class: "w-full aspect-[4/3] object-cover rounded-2xl shadow-md", alt: @cottage.name %>
+              </div>
+            <% end %>
+          </div>
+          <% if @cottage.photos.count > 1 %>
+            <button type="button" data-action="carousel#prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-bone/95 rounded-full w-11 h-11 shadow border border-line flex items-center justify-center text-2xl leading-none">‹</button>
+            <button type="button" data-action="carousel#next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-bone/95 rounded-full w-11 h-11 shadow border border-line flex items-center justify-center text-2xl leading-none">›</button>
+          <% end %>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <% if @cottage_details.any? %>
+    <section class="px-8 py-20 bg-paper">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="display text-3xl sm:text-4xl m-0 mb-10">
+          <%= I18n.locale == :fr ? "Ce que comprend" : "What's included in" %>
+          <span class="instrument text-terra"><%= I18n.locale == :fr ? "le séjour" : "the stay" %></span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <% @cottage_details.each do |detail| %>
+            <article data-controller="reveal" data-reveal class="bg-bone p-8 rounded-2xl border border-line">
+              <h3 class="display text-2xl m-0 mb-4 text-ink">
+                <%= detail.title %>
+              </h3>
+              <div class="prose prose-sm max-w-none text-slate"><%= markdown(detail.description) %></div>
+            </article>
+          <% end %>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <% other_cottages = Cottage.ordered.where.not(id: @cottage.id) %>
+  <% if other_cottages.any? %>
+    <section class="px-8 py-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-baseline mb-8">
+          <h2 class="display text-3xl m-0"><%= I18n.locale == :fr ? "Et aussi à Kervao" : "Also at Kervao" %></h2>
+          <%= link_to home_path(anchor: "gites"), class: "text-terra text-[13px] inline-flex items-center gap-1.5 font-medium no-underline" do %>
+            <%= I18n.locale == :fr ? "Voir les #{Cottage.count} gîtes" : "See all #{Cottage.count} cottages" %>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          <% end %>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5">
+          <% other_cottages.each do |other| %>
+            <%= link_to cottage_path(reference: other.reference), class: "gite-card flex-row items-stretch no-underline text-ink" do %>
+              <div class="img-wrap !w-[40%] !aspect-auto">
+                <% if other.main_picture.attached? %>
+                  <%= image_tag other.main_picture, alt: other.name %>
+                <% end %>
+              </div>
+              <div class="px-6 py-6 flex flex-col justify-center gap-2.5 flex-1">
+                <h3 class="display text-2xl m-0"><%= other.name %></h3>
+                <% if other.short_description.present? %>
+                  <p class="m-0 text-[13px] text-slate"><%= other.short_description %></p>
+                <% end %>
+                <div class="flex gap-1.5 flex-wrap mt-1.5">
+                  <span class="chip text-[11px] py-1.5 px-2.5"><%= other.surface %></span>
+                  <span class="chip text-[11px] py-1.5 px-2.5"><%= other.beddings %> <%= I18n.locale == :fr ? "couchages" : "beds" %></span>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <%= render "shared/footer", contact_info: ContactInfo.instance %>
+</main>

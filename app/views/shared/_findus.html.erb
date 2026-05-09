@@ -1,0 +1,37 @@
+<%# locals: (home_page:) %>
+<section id="findus" class="px-8 py-24 max-w-7xl mx-auto">
+  <div class="grid lg:grid-cols-[1.2fr_1fr] gap-12 items-stretch">
+    <div data-controller="reveal map" data-reveal
+         data-map-latitude-value="48.5594536"
+         data-map-longitude-value="-4.6799251"
+         data-map-zoom-value="13"
+         data-map-label-value="Gîtes de Kervao"
+         class="isolate rounded-[24px] overflow-hidden bg-paper border border-line min-h-[400px]">
+    </div>
+
+    <div data-controller="reveal" data-reveal data-reveal-delay="1" class="px-9 py-10 bg-ink text-bone rounded-[24px]">
+      <span class="badge bg-bone/10 border-bone/25 text-bone mb-5"><%= home_page.find_us_title %></span>
+      <h2 class="display text-3xl sm:text-4xl m-0 mb-5 leading-none -tracking-[0.01em]">
+        <%= home_page.where_is_kervao_title %>
+      </h2>
+      <div class="prose prose-invert text-sm leading-relaxed opacity-80 mb-6">
+        <%= markdown(home_page.where_is_kervao_description) %>
+      </div>
+
+      <div class="grid gap-4">
+        <% [
+          ["🚗", home_page.by_car],
+          ["✈️", home_page.by_plane],
+          ["🚆", home_page.by_rail]
+        ].each_with_index do |(icon, body), idx| %>
+          <div class="grid grid-cols-[60px_1fr] gap-4 <%= 'pt-4 border-t border-bone/15' if idx > 0 %>">
+            <span class="instrument text-2xl text-terra-soft"><%= icon %></span>
+            <div class="prose prose-invert text-[13px] leading-relaxed opacity-90">
+              <%= markdown(body) %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

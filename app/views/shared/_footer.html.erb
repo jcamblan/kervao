@@ -1,0 +1,52 @@
+<%# locals: (contact_info:) %>
+<footer class="bg-paper px-8 pt-16 pb-8 border-t border-line">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-12 pb-10 border-b border-line">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="w-11 h-11 rounded-2xl bg-terra flex items-center justify-center text-white">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z" fill="rgba(255,255,255,0.15)" />
+              <path d="M7 17c1 0 1-1 2-1s1 1 2 1 1-1 2-1 1 1 2 1" />
+            </svg>
+          </span>
+          <div class="display text-2xl">Gîtes de Kervao</div>
+        </div>
+        <p class="text-sm leading-relaxed text-slate max-w-sm mt-5">
+          <%= I18n.locale == :fr ?
+              "Trois gîtes indépendants en Finistère, dans une longère à 600 m des dunes de Tréompan." :
+              "Three independent cottages in Finistère, in a longère 600m from the Tréompan dunes." %>
+        </p>
+        <div class="instrument mt-5 text-terra text-lg">Ken ar c'hentañ — <%= I18n.locale == :fr ? "à bientôt." : "see you soon." %></div>
+      </div>
+
+      <div>
+        <div class="lbl mb-4 text-ink uppercase tracking-wider"><%= I18n.locale == :fr ? "Visiter" : "Visit" %></div>
+        <% Cottage.ordered.each do |c| %>
+          <%= link_to c.name, cottage_path(reference: c.reference), class: "block py-1 text-[13px] text-slate hover:text-terra no-underline" %>
+        <% end %>
+      </div>
+
+      <div>
+        <div class="lbl mb-4 text-ink uppercase tracking-wider"><%= I18n.locale == :fr ? "Pratique" : "Practical" %></div>
+        <a href="#prices" class="block py-1 text-[13px] text-slate hover:text-terra no-underline"><%= t("nav.prices") %></a>
+        <a href="#contact" class="block py-1 text-[13px] text-slate hover:text-terra no-underline"><%= t("nav.contact") %></a>
+        <a href="#findus" class="block py-1 text-[13px] text-slate hover:text-terra no-underline"><%= t("nav.find_us") %></a>
+      </div>
+
+      <div>
+        <div class="lbl mb-4 text-ink uppercase tracking-wider"><%= contact_info.title %></div>
+        <div class="text-[13px] leading-relaxed text-slate prose prose-sm max-w-none">
+          <% if contact_info.phone_number.present? %><%= contact_info.phone_number %><br><% end %>
+          <% if contact_info.email.present? %><%= contact_info.email %><br><% end %>
+          <%= markdown(contact_info.address) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-3 pt-6 text-xs text-muted">
+      <span>© <%= Date.current.year %> Gîtes de Kervao</span>
+      <span><%= I18n.locale == :fr ? "Meublé de tourisme · Pays d'Iroise · Finistère" : "Holiday rental · Pays d'Iroise · Finistère" %></span>
+    </div>
+  </div>
+</footer>

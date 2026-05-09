@@ -1,0 +1,63 @@
+fr:
+  nav:
+    cottages: "Gîtes"
+    find_us: "Nous trouver"
+    prices: "Tarifs"
+    contact: "Contact"
+
+  home:
+    cottages:
+      badge: "Nos gîtes"
+      heading_main: "Trois gîtes en longère,"
+      heading_emphasis: "à l'orée des dunes."
+
+  cottages:
+    surface: "Surface"
+    bedrooms: "Chambres"
+    beds: "Couchages"
+    shower_room: "Salle d'eau"
+    parking: "Parking"
+    wheelchair: "Accès PMR"
+    see_more: "En savoir plus"
+    back_to_list: "Retour aux gîtes"
+    photos: "Photos"
+
+  contact:
+    form:
+      title: "Nous contacter"
+      name: "Nom"
+      email: "Email"
+      subject: "Objet"
+      message: "Message"
+      submit: "Envoyer"
+      booking: "Réservation"
+      information: "Renseignement"
+      success: "Votre message a bien été envoyé. Nous vous répondrons dans les plus brefs délais."
+      error: "Une erreur s'est produite. Merci de réessayer."
+
+  back_to_top: "Remonter"
+
+  admin:
+    nav:
+      dashboard: "Tableau de bord"
+      home_page: "Page d'accueil"
+      cottages: "Gîtes"
+      pricing: "Tarifs"
+      contact_info: "Infos contact"
+    actions:
+      edit: "Modifier"
+      save: "Enregistrer"
+      cancel: "Annuler"
+      delete: "Supprimer"
+      add: "Ajouter"
+      new_cottage: "Nouveau gîte"
+      new_period: "Ajouter une période"
+    locale_tabs:
+      fr: "Français"
+      en: "Anglais"
+    cottages:
+      title: "Gîtes"
+      main_picture: "Photo principale"
+      gallery: "Galerie photos"
+      details: "Détails supplémentaires"
+      add_detail: "Ajouter un bloc de détail"

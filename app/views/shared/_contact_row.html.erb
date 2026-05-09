@@ -1,0 +1,26 @@
+<%# locals: (icon:, label:, value: nil, sub: nil, href: nil, address: nil) %>
+<div class="grid grid-cols-[auto_1fr] gap-3.5 px-5 py-4 bg-bone border border-line rounded-[18px]">
+  <div class="w-10 h-10 rounded-xl bg-paper text-terra flex items-center justify-center">
+    <% case icon
+       when :phone %>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+    <% when :mail %>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg>
+    <% when :pin %>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-7.5 7-13a7 7 0 0 0-14 0c0 5.5 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
+    <% end %>
+  </div>
+  <div>
+    <div class="lbl mb-0.5"><%= label %></div>
+    <% if address %>
+      <div class="text-[15px] font-medium prose prose-sm max-w-none"><%= markdown(address) %></div>
+    <% elsif href %>
+      <a href="<%= href %>" class="text-[15px] font-medium hover:text-terra"><%= value %></a>
+    <% else %>
+      <div class="text-[15px] font-medium"><%= value %></div>
+    <% end %>
+    <% if sub %>
+      <div class="text-[13px] text-muted mt-0.5"><%= sub %></div>
+    <% end %>
+  </div>
+</div>
