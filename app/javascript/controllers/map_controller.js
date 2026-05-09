@@ -1,15 +1,28 @@
 import { Controller } from "@hotwired/stimulus"
-import L from "leaflet"
 
 export default class extends Controller {
   static values = {
     latitude: Number,
     longitude: Number,
-    zoom: { type: Number, default: 10 },
+    zoom: { type: Number, default: 13 },
     label: String,
   }
 
   connect() {
+    this.initIfReady()
+  }
+
+  initIfReady() {
+    if (window.L) {
+      this.render()
+    } else {
+      // Leaflet's UMD <script defer> may not be loaded yet at first connect.
+      this.timeout = setTimeout(() => this.initIfReady(), 50)
+    }
+  }
+
+  render() {
+    const L = window.L
     const center = [this.latitudeValue, this.longitudeValue]
     this.map = L.map(this.element).setView(center, this.zoomValue)
 
@@ -25,6 +38,7 @@ export default class extends Controller {
   }
 
   disconnect() {
+    if (this.timeout) clearTimeout(this.timeout)
     this.map?.remove()
   }
 }
