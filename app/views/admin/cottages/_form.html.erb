@@ -84,6 +84,19 @@
   </section>
 
   <section class="bg-white p-6 rounded shadow space-y-4">
+    <h2 class="text-lg font-medium">Photos pour la card (carrousel home)</h2>
+    <% if cottage.card_photos.attached? %>
+      <div class="grid grid-cols-3 md:grid-cols-5 gap-2">
+        <% cottage.card_photos.each do |photo| %>
+          <%= image_tag photo, class: "w-full h-24 object-cover rounded" %>
+        <% end %>
+      </div>
+    <% end %>
+    <%= f.file_field :card_photos, multiple: true, accept: "image/*" %>
+    <p class="text-xs text-gray-500">Sélection multiple. Si vide, la card affiche la photo principale. Les nouvelles photos sont ajoutées à la sélection existante.</p>
+  </section>
+
+  <section class="bg-white p-6 rounded shadow space-y-4">
     <h2 class="text-lg font-medium"><%= t("admin.cottages.details") %></h2>
     <div class="space-y-6" data-controller="nested-form" data-nested-form-target="container">
       <%= f.fields_for :cottage_details do |df| %>

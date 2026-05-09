@@ -52,6 +52,7 @@ class Admin::CottagesController < Admin::BaseController
       :short_description_fr, :short_description_en,
       :full_description_fr, :full_description_en,
       photos: [],
+      card_photos: [],
       cottage_details_attributes: [
         :id, :position, :_destroy,
         :title_fr, :title_en,

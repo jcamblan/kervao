@@ -84,14 +84,33 @@ html, body {
 
 /* === Cards =============================================================== */
 .gite-card {
+  position: relative;
   cursor: pointer; transition: transform .35s cubic-bezier(.2,.7,.2,1);
   background: var(--color-bone); border-radius: 18px; overflow: hidden;
   border: 1px solid var(--color-line); display: flex; flex-direction: column;
 }
 .gite-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(58,66,80,0.10); }
-.gite-card .img-wrap { aspect-ratio: 4/3; overflow: hidden; }
+.gite-card .img-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+.gite-card .img-wrap > [data-carousel-target="track"] { scrollbar-width: none; -ms-overflow-style: none; }
+.gite-card .img-wrap > [data-carousel-target="track"]::-webkit-scrollbar { display: none; }
 .gite-card .img-wrap img { transition: transform .8s cubic-bezier(.2,.7,.2,1); width: 100%; height: 100%; object-fit: cover; }
 .gite-card:hover .img-wrap img { transform: scale(1.06); }
+
+.card-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 36px; height: 36px; border-radius: 9999px;
+  background: rgba(245, 244, 240, 0.95);
+  border: 1px solid var(--color-line);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; line-height: 1; color: var(--color-ink);
+  opacity: 0; transition: opacity .25s ease, background .2s ease;
+  cursor: pointer; z-index: 2;
+}
+.card-arrow:hover { background: rgba(245, 244, 240, 1); }
+.card-arrow-prev { left: 12px; }
+.card-arrow-next { right: 12px; }
+.gite-card:hover .card-arrow { opacity: 1; }
+@media (hover: none) { .card-arrow { display: none; } }
 
 .feature-tile {
   padding: 14px 18px; display: flex; align-items: center; gap: 12px;

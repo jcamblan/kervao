@@ -7,6 +7,7 @@ class Cottage < ApplicationRecord
   has_many :pricing_rates, dependent: :destroy
   has_one_attached :main_picture
   has_many_attached :photos
+  has_many_attached :card_photos
 
   accepts_nested_attributes_for :cottage_details, allow_destroy: true, reject_if: :all_blank
 
