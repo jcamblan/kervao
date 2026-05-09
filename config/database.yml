@@ -90,6 +90,7 @@ production:
     database: kervao_production
     username: kervao
     password: <%= ENV["KERVAO_DATABASE_PASSWORD"] %>
+    host: <%= ENV.fetch("DB_HOST", "localhost") %>
   cache:
     <<: *primary_production
     database: kervao_production_cache

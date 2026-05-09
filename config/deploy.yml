@@ -1,0 +1,52 @@
+service: kervao
+image: jcamblan/kervao
+
+servers:
+  web:
+    - 64.31.63.220  # Remplacer par l'IP Scaleway
+
+registry:
+  server: ghcr.io
+  username: jcamblan
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+builder:
+  arch: amd64  # Mac Apple Silicon → cross-compilation vers x86_64 Scaleway
+
+env:
+  clear:
+    RAILS_LOG_TO_STDOUT: "true"
+    RAILS_SERVE_STATIC_FILES: "true"
+    SOLID_QUEUE_IN_PUMA: "true"
+    RAILS_MAX_THREADS: "3"
+    WEB_CONCURRENCY: "1"
+    DB_HOST: kervao-db
+  secret:
+    - RAILS_MASTER_KEY
+    - KERVAO_DATABASE_PASSWORD
+
+volumes:
+  - "/var/lib/kervao/storage:/rails/storage"
+
+proxy:
+  ssl: false       # Démo sur IP — SSL activé plus tard avec le domaine
+  host: 64.31.63.220
+  response_timeout: 60
+  healthcheck:
+    path: /up
+    interval: 20
+
+accessories:
+  db:
+    image: postgres:16-alpine
+    host: 64.31.63.220  # Remplacer par l'IP Scaleway
+    port: 127.0.0.1:5432:5432
+    env:
+      clear:
+        POSTGRES_USER: kervao
+        POSTGRES_DB: kervao_production
+      secret:
+        - POSTGRES_PASSWORD
+    volumes:
+      - "/var/lib/kervao/postgres:/var/lib/postgresql/data"
