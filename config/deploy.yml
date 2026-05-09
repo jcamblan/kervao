@@ -12,7 +12,8 @@ registry:
     - KAMAL_REGISTRY_PASSWORD
 
 builder:
-  arch: amd64  # Mac Apple Silicon → cross-compilation vers x86_64 Scaleway
+  remote: ssh://root@64.31.63.220
+  arch: amd64
 
 env:
   clear:
