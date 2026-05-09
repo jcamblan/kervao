@@ -151,6 +151,7 @@ html, body {
 .prose ul, .prose ol { list-style: revert; padding-left: 1.5rem; }
 .prose a { color: var(--color-terra); text-decoration: underline; }
 .prose strong { font-weight: 600; }
+.prose p + p { margin-top: 1em; }
 
 /* === Custom scrollbar =================================================== */
 .scrollarea::-webkit-scrollbar { width: 6px; }

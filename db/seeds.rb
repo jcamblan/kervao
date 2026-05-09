@@ -18,56 +18,41 @@ home.update!(
   intro_fr: <<~MD,
     Bienvenue chez nous, à Tréompan.
 
-    Merci aux estivants et vacanciers français, allemands, anglais qui nous ont
-    accordé leur confiance et sympathie les années passées et bienvenue à vous
-    qui programmez votre prochain séjour.
+    Merci aux vacanciers français, allemands et anglais qui nous accordent leur
+    confiance depuis des années — et bienvenue à vous qui préparez votre
+    prochain séjour dans le Finistère nord.
 
-    J'ai le plaisir de vous accueillir toute l'année, dans les Gîtes de Kervao
-    situés dans le village de Tréompan.
+    Je vous accueille **toute l'année** dans nos **trois gîtes indépendants**
+    (Camélias, Arums, Hortensias), réunis dans une longère sur 1 770 m² de
+    terrain dont 1 600 m² de jardins. **Capacité totale : 12 personnes.**
 
-    La longère qui accueille **trois gîtes indépendants** (les Camélias, les
-    Arums, les Hortensias) est implantée sur un site de 1 770 m² (dont 1 600 m²
-    de jardins). **La capacité d'accueil totale des 3 gîtes est de 12
-    personnes.**
+    Le gîte **Camélias est accessible aux personnes à mobilité réduite (PMR)**,
+    tous les gîtes sont **raccordés à la fibre**, et l'équipement pour enfants
+    de moins de 2 ans (lit bébé, chaise haute, baignoire) est offert sur
+    demande.
 
-    Sur demande, sont mis à votre disposition (inclus dans le tarif) les
-    équipements pour enfants de moins de 2 ans (lit bébé, chaise haute,
-    baignoire). Le gîte Camélias est équipé et configuré pour accueillir les
-    personnes à mobilité réduite accompagnées (accès PMR). Les gîtes sont
-    raccordés au réseau fibre.
-
-    **Faire de votre séjour une occasion de beaux souvenirs, de sérénité et de
-    convivialité est ma priorité.** Sommeil de qualité, hygiène et confort,
-    voilà ce que je souhaite vous offrir lors de votre passage.
-
-    Pour des vacances ou séjours sans aucun nuage sur votre bonne humeur,
-    choisissez les gîtes de Kervao !
+    Sommeil de qualité, hygiène, confort : **faire de votre séjour un beau
+    souvenir est ma priorité.** Pour des vacances en Bretagne sans nuages,
+    choisissez les Gîtes de Kervao !
   MD
   intro_en: <<~MD,
     Welcome to our home in Tréompan.
 
-    Thank you to the French, German and English visitors who have shared their
-    trust and friendship over the years, and welcome to you who are planning
-    your next stay.
+    Thank you to our French, German and English guests for their trust over
+    the years — and welcome to you who are planning your next stay in
+    northern Finistère, Brittany.
 
-    I am pleased to welcome you all year round to the Gîtes de Kervao, in the
-    village of Tréompan.
+    I welcome you **all year round** in our **three independent cottages**
+    (Camellias, Arums, Hydrangeas), gathered in a longère on a 1 770 m² plot
+    including 1 600 m² of gardens. **Total capacity: 12 guests.**
 
-    The longère that hosts **three independent cottages** — Camellias, Arums,
-    Hydrangeas — sits on a 1 770 m² plot (including 1 600 m² of gardens).
-    **Total capacity across the three cottages is 12 guests.**
+    The **Camellias cottage is wheelchair-accessible (PMR)**, all cottages
+    are **connected to fibre internet**, and baby equipment (cot, high
+    chair, baby bath) is provided on request for children under two.
 
-    On request, baby equipment (cot, high chair, baby bath) is provided at no
-    extra cost for children under two. The Camellias cottage is fitted for
-    accompanied disabled access (PMR). All three cottages are connected to
-    fibre internet.
-
-    **Making your stay a chance for warm memories, calm and friendliness is my
-    priority.** Quality sleep, hygiene and comfort — that is what I aim to
-    offer for your visit.
-
-    For holidays without a single cloud on your good mood, choose the Gîtes de
-    Kervao!
+    Quality sleep, hygiene and comfort: **making your stay a beautiful
+    memory is my priority.** For holidays in Brittany without a single
+    cloud, choose the Gîtes de Kervao!
   MD
   signature_fr: "*Cathy Madec*",
   signature_en: "*Cathy Madec*",
