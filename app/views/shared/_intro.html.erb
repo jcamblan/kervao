@@ -1,6 +1,6 @@
 <%# locals: (home_page:, cottages:) %>
 <section class="px-8 pt-8 relative">
-  <div class="relative rounded-[28px] overflow-hidden bg-ink min-h-[460px] aspect-[21/8]">
+  <div class="relative rounded-[28px] overflow-hidden bg-ink min-h-[460px] sm:aspect-[21/8]">
     <% if home_page.top_banner.attached? %>
       <%= image_tag home_page.top_banner,
           alt: "Gîtes de Kervao",
@@ -21,7 +21,7 @@
       </div>
 
       <div data-controller="reveal" data-reveal data-reveal-delay="1">
-        <h1 class="display text-[44px] sm:text-6xl lg:text-[96px] leading-[0.95] m-0 -tracking-[0.02em] max-w-4xl">
+        <h1 class="display text-[44px] sm:text-6xl lg:text-[96px] leading-[0.95] m-0 mt-12 sm:mt-0 -tracking-[0.02em] max-w-4xl">
           <%= I18n.locale == :fr ? "Une longère, trois gîtes," : "One longère, three cottages," %><br>
           <span class="instrument text-terra-soft"><%= I18n.locale == :fr ? "tout un pays d'Iroise." : "the heart of Iroise." %></span>
         </h1>
