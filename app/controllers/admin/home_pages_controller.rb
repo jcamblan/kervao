@@ -19,6 +19,7 @@ class Admin::HomePagesController < Admin::BaseController
       :top_banner, :banner2, :banner3,
       :intro_fr, :intro_en,
       :signature_fr, :signature_en,
+      :marquee_words_fr, :marquee_words_en,
       :cottages_title_fr, :cottages_title_en,
       :cottages_description_fr, :cottages_description_en,
       :find_us_title_fr, :find_us_title_en,

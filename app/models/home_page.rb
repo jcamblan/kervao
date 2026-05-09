@@ -1,7 +1,7 @@
 class HomePage < ApplicationRecord
   extend Mobility
 
-  translates :intro, :signature,
+  translates :intro, :signature, :marquee_words,
              :cottages_title, :cottages_description,
              :find_us_title,
              :where_is_kervao_title, :where_is_kervao_description,
@@ -15,5 +15,9 @@ class HomePage < ApplicationRecord
 
   def self.instance
     first_or_create!
+  end
+
+  def marquee_words_list
+    marquee_words.to_s.lines.map(&:strip).reject(&:blank?)
   end
 end

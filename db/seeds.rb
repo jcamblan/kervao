@@ -57,6 +57,33 @@ home.update!(
   signature_fr: "*Cathy Madec*",
   signature_en: "*Cathy Madec*",
 
+  marquee_words_fr: <<~LIST,
+    Crêpes
+    Phares
+    Dunes
+    Aber Wrac'h
+    Fruits de mer
+    GR34
+    Île Molène
+    Farz
+    Kayak
+    Pêche à pied
+    Mer d'Iroise
+  LIST
+  marquee_words_en: <<~LIST,
+    Crêpes
+    Lighthouses
+    Dunes
+    Aber Wrac'h
+    Seafood
+    GR34
+    Molène Island
+    Farz
+    Kayak
+    Beachcombing
+    Iroise Sea
+  LIST
+
   cottages_title_fr: "Nos gîtes",
   cottages_title_en: "Our cottages",
   cottages_description_fr: <<~MD,
