@@ -216,7 +216,7 @@ COTTAGES = [
           - 1 lit 1 personne 110 × 190 (mezzanine, lit d'appoint)
           - Coin lecture ou jeux sur la mezzanine, 3 fauteuils, table basse
         MD
-        description_en: <<~MD,
+        description_en: <<~MD
           - 1 double bed 160 × 200 (ground floor)
           - 2 single beds 90 × 190 (first floor)
           - 1 single bed 110 × 190 (mezzanine, extra bed)
@@ -239,7 +239,7 @@ COTTAGES = [
 
           **Connexion** : WIFI gratuit, raccordement fibre.
         MD
-        description_en: <<~MD,
+        description_en: <<~MD
           **Living room**: sofa, armchair, coffee table, flat-screen TV, radio.
 
           **Kitchen**: oven, microwave, hob, toaster, kettle, coffee machine,
@@ -262,7 +262,7 @@ COTTAGES = [
 
           *Service en option : ménage de fin de séjour (55 €).*
         MD
-        description_en: <<~MD,
+        description_en: <<~MD
           - Bed linen provided
           - Bath linen (1 towel and 1 washcloth per guest)
           - Bath mat
@@ -283,7 +283,7 @@ COTTAGES = [
           **2 places de parking** sont réservées au gîte, dans l'enceinte de la
           propriété.
         MD
-        description_en: <<~MD,
+        description_en: <<~MD
           The cottage has its own **private terrace and 50 m² small garden**,
           with garden furniture, an electric barbecue, a parasol and sun
           loungers.
@@ -344,7 +344,7 @@ COTTAGES = [
           - 1 lit double 140 × 190 (mezzanine, lit d'appoint)
           - Coin lecture ou jeux sur la mezzanine, fauteuil, table et chaises
         MD
-        description_en: <<~MD,
+        description_en: <<~MD
           - 1 double bed 140 × 190 (ground floor)
           - 2 single beds 90 × 190 (first floor)
           - 1 double bed 140 × 190 (mezzanine, extra bed)
@@ -367,7 +367,7 @@ COTTAGES = [
 
           **Connexion** : WIFI gratuit, raccordement fibre.
         MD
-        description_en: <<~MD,
+        description_en: <<~MD
           **Living room**: fireplace, sofa, armchair, coffee table, smart
           flat-screen TV.
 
@@ -391,7 +391,7 @@ COTTAGES = [
 
           *Service en option : ménage de fin de séjour (55 €).*
         MD
-        description_en: <<~MD,
+        description_en: <<~MD
           - Bed linen provided
           - Bath linen (1 towel and 1 washcloth per guest)
           - Bath mat
@@ -411,7 +411,7 @@ COTTAGES = [
           Le jardin de 1 600 m² est partagé avec les deux autres gîtes.
           **2 places de parking** sont réservées au gîte.
         MD
-        description_en: <<~MD,
+        description_en: <<~MD
           The cottage has its own **private terrace and 50 m² small garden**,
           with garden furniture, an electric barbecue, a parasol and 2 sun
           loungers.
@@ -476,7 +476,7 @@ COTTAGES = [
           - 1 lit bébé sur demande
           - Canapé convertible (1 jeune personne)
         MD
-        description_en: <<~MD,
+        description_en: <<~MD
           - 1 double bed 140 × 190 (bedroom)
           - 1 cot on request
           - Sofa-bed (1 young person)
@@ -498,7 +498,7 @@ COTTAGES = [
 
           **Connexion** : WIFI gratuit, raccordement fibre.
         MD
-        description_en: <<~MD,
+        description_en: <<~MD
           **Living room**: sofa-bed, coffee table, smart flat-screen TV, radio.
 
           **Kitchen**: oven, microwave, hob, toaster, kettle, coffee machine,
@@ -522,7 +522,7 @@ COTTAGES = [
 
           *Service en option : ménage de fin de séjour (45 €).*
         MD
-        description_en: <<~MD,
+        description_en: <<~MD
           - Bed linen provided
           - Bath linen (1 towel and 1 washcloth per guest)
           - Bath mat
@@ -542,7 +542,7 @@ COTTAGES = [
           Le jardin de 1 600 m² est partagé avec les deux autres gîtes.
           **2 places de parking** sont réservées au gîte.
         MD
-        description_en: <<~MD,
+        description_en: <<~MD
           The cottage has its own **private terrace and 50 m² small garden**,
           with garden furniture, an electric barbecue, a parasol and sun
           loungers.

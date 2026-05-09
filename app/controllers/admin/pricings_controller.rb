@@ -35,7 +35,7 @@ class Admin::PricingsController < Admin::BaseController
         :id, :position, :_destroy,
         :title_fr, :title_en,
         :subtitle_fr, :subtitle_en,
-        pricing_rates_attributes: [:id, :cottage_id, :price, :_destroy]
+        pricing_rates_attributes: [ :id, :cottage_id, :price, :_destroy ]
       ]
     )
   end
