@@ -5,6 +5,12 @@ en:
     prices: "Prices"
     contact: "Contact"
 
+  home:
+    cottages:
+      badge: "Our cottages"
+      heading_main: "Three cottages in a longère,"
+      heading_emphasis: "at the edge of the dunes."
+
   cottages:
     surface: "Surface"
     bedrooms: "Bedrooms"

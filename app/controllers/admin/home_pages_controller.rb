@@ -20,8 +20,6 @@ class Admin::HomePagesController < Admin::BaseController
       :intro_fr, :intro_en,
       :signature_fr, :signature_en,
       :marquee_words_fr, :marquee_words_en,
-      :cottages_title_fr, :cottages_title_en,
-      :cottages_description_fr, :cottages_description_en,
       :find_us_title_fr, :find_us_title_en,
       :where_is_kervao_title_fr, :where_is_kervao_title_en,
       :where_is_kervao_description_fr, :where_is_kervao_description_en,

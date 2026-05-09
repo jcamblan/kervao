@@ -2,7 +2,6 @@ class HomePage < ApplicationRecord
   extend Mobility
 
   translates :intro, :signature, :marquee_words,
-             :cottages_title, :cottages_description,
              :find_us_title,
              :where_is_kervao_title, :where_is_kervao_description,
              :where_is_ploudal_title, :where_is_ploudal_description,

@@ -5,6 +5,12 @@ fr:
     prices: "Tarifs"
     contact: "Contact"
 
+  home:
+    cottages:
+      badge: "Nos gîtes"
+      heading_main: "Trois gîtes en longère,"
+      heading_emphasis: "à l'orée des dunes."
+
   cottages:
     surface: "Surface"
     bedrooms: "Chambres"

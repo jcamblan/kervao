@@ -84,42 +84,6 @@ home.update!(
     Iroise Sea
   LIST
 
-  cottages_title_fr: "Nos gîtes",
-  cottages_title_en: "Our cottages",
-  cottages_description_fr: <<~MD,
-    Les trois gîtes sont rassemblés dans une longère construite en 2004 et 2005.
-    Ils concilient les atouts des constructions récentes et les proportions de
-    l'habitat traditionnel local.
-
-    Le lieu est idéal pour des vacances en famille ou avec des amis, au calme,
-    à proximité de la mer (800 mètres) et des dunes (balade GR34). Tous nos
-    gîtes disposent d'une terrasse équipée et d'un jardin de 50 m² privatifs,
-    et de tout le confort (salon de jardin, barbecue, cuisine équipée,
-    lave-vaisselle, lave-linge, sèche-linge, télévision écran plat, sèche-
-    cheveux, WIFI gratuit, fibre).
-
-    Le parking privé est partagé entre les trois gîtes (2 places possibles par
-    locataire).
-
-    *Ken ar c'hentañ — à bientôt. Cathy*
-  MD
-  cottages_description_en: <<~MD,
-    The three cottages share a longère built in 2004 and 2005. They combine
-    the comfort of modern construction with the proportions of traditional
-    local houses.
-
-    The setting is ideal for family or friends holidays — quiet, close to the
-    sea (800 m) and the dunes (GR34 coastal path). Each cottage has its own
-    private terrace and 50 m² garden, plus full comfort (garden furniture,
-    barbecue, fitted kitchen, dishwasher, washing machine, tumble drier, flat
-    screen TV, hair dryer, free WiFi, fibre).
-
-    The private car park is shared between the three cottages (two spaces
-    available per cottage).
-
-    *Ken ar c'hentañ — see you soon. Cathy*
-  MD
-
   find_us_title_fr: "Nous trouver",
   find_us_title_en: "Find us",
 

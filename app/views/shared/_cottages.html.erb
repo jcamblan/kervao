@@ -1,10 +1,10 @@
 <%# locals: (home_page:, cottages:, pricing_periods:) %>
 <section id="gites" class="px-8 pt-16 pb-24 max-w-7xl mx-auto">
   <div class="mb-12">
-    <span class="badge mb-4"><%= I18n.locale == :fr ? "Nos gîtes" : "Our cottages" %></span>
+    <span class="badge mb-4"><%= t("home.cottages.badge") %></span>
     <h2 class="display text-4xl sm:text-5xl lg:text-6xl leading-none m-0 -tracking-[0.02em]">
-      <%= I18n.locale == :fr ? "Trois maisons," : "Three houses," %>
-      <span class="instrument text-terra"><%= I18n.locale == :fr ? "un même jardin" : "one shared garden" %></span>
+      <%= t("home.cottages.heading_main") %>
+      <span class="instrument text-terra"><%= t("home.cottages.heading_emphasis") %></span>
     </h2>
   </div>
 
@@ -15,9 +15,5 @@
         <%= render "shared/cottage_card", cottage: cottage, min_price: min_price&.to_i %>
       </div>
     <% end %>
-  </div>
-
-  <div class="prose text-slate text-base leading-relaxed mt-16 max-w-3xl mx-auto" data-controller="reveal" data-reveal>
-    <%= markdown(home_page.cottages_description) %>
   </div>
 </section>
